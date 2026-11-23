@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JOY FLOWERS | Flowers Make Life Better</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ed1685;
+    --green: #174c28;
+    --yellow: #ffcf18;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    color: #222;
+}
+
+/* BACKGROUND */
+
+.background {
+    position: fixed;
+    inset: 0;
+    background:
+      linear-gradient(rgba(255,255,255,.23),
+                      rgba(255,255,255,.38)),
+      url("background.jpg") center center / cover no-repeat;
+    filter: blur(7px);
+    transform: scale(1.05);
+    z-index: -1;
+}
+
+/* LANGUAGE SCREEN */
+
+.language-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+    background: rgba(255,255,255,.13);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.language-box {
+    width: 100%;
+    max-width: 900px;
+    min-height: 570px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: rgba(255,255,255,.78);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 25px;
+    box-shadow: 0 15px 55px rgba(0,0,0,.17);
+}
+
+/* LEFT SIDE */
+
+.language-content {
+    flex: 1;
+    text-align: center;
+}
+
+.logo {
+    font-size: 43px;
+    font-weight: 900;
+    color: var(--green);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.tagline {
+    color: var(--pink);
+    font-style: italic;
+    margin-top: 7px;
+    font-size: 16px;
+}
+
+.welcome {
+    font-size: 30px;
+    color: var(--green);
+    margin-top: 35px;
+    margin-bottom: 8px;
+}
+
+.description {
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.language-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.language-btn {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    background: var(--yellow);
+    color: #173e20;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .25s;
+    box-shadow: 0 4px 10px rgba(0,0,0,.09);
+}
+
+.language-btn:nth-child(even) {
+    background: white;
+}
+
+.language-btn:hover {
+    background: var(--pink);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.flag {
+    font-size: 25px;
+}
+
+.arrow {
+    font-size: 23px;
+}
+
+/* RIGHT SIDE PHOTO */
+
+.florist-photo {
+    width: 38%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 180px 180px 25px 25px;
+    border: 6px solid white;
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+/* FOOTER */
+
+.language-footer {
+    margin-top: 25px;
+    color: var(--pink);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* MAIN WEBSITE */
+
+#mainWebsite {
+    display: none;
+    min-height: 100vh;
+    background: white;
+}
+
+header {
+    background: white;
+    padding: 17px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,.08);
+}
+
+header .logo {
+    font-size: 29px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--green);
+    font-weight: bold;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: var(--pink);
+}
+
+.hero {
+    min-height: 520px;
+    padding: 70px 7%;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,.15)),
+    url("background.jpg") center/cover;
+}
+
+.hero-content {
+    max-width: 550px;
+}
+
+.hero h1 {
+    font-size: clamp(38px,6vw,65px);
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: var(--pink);
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.explore {
+    display: inline-block;
+    background: var(--pink);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section {
+    padding: 55px 5%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 32px;
+    color: var(--green);
+    margin-bottom: 30px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1fr));
+    gap: 20px;
+}
+
+.category {
+    padding: 35px 15px;
+    background: #fff2f8;
+    border-radius: 15px;
+    border: 1px solid #f7d3e5;
+}
+
+.category h3 {
+    color: var(--pink);
+    margin-bottom: 10px;
+}
+
+.category a {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--green);
+    font-weight: bold;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    background: var(--green);
+    color: white;
+}
+
+footer p {
+    margin: 8px;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:700px) {
+
+    .language-screen {
+        padding: 12px;
+    }
+
+    .language-box {
+        flex-direction: column;
+        padding: 22px 17px;
+        gap: 15px;
+        min-height: auto;
+        max-width: 450px;
+        border-radius: 22px;
+    }
+
+    .language-content {
+        width: 100%;
+    }
+
+    .logo {
+        font-size: 34px;
+    }
+
+    .welcome {
+        font-size: 25px;
+        margin-top: 15px;
+    }
+
+    .description {
+        margin-bottom: 15px;
+    }
+
+    .florist-photo {
+        width: 145px;
+        height: 165px;
+        border-radius: 100px;
+        object-position: top center;
+        order: -1;
+    }
+
+    .language-btn {
+        padding: 13px 18px;
+        font-size: 15px;
+    }
+
+    .language-buttons {
+        gap: 9px;
+    }
+
+    .language-footer {
+        margin-top: 17px;
+    }
+
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 13px;
+    }
+
+    .hero {
+        min-height: 430px;
+        padding: 45px 7%;
+        background-position: center;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- LANGUAGE SELECTION -->
+
+<div class="language-screen" id="languageScreen">
+
+    <div class="language-box">
+
+        <div class="language-content">
+
+            <div class="logo">
+                <span>JOY</span> FLOWERS
+            </div>
+
+            <div class="tagline">
+                Flowers Make Life Better
+            </div>
+
+            <h2 class="welcome" id="welcome">
+                Welcome to JOY FLOWERS
+            </h2>
+
+            <p class="description" id="chooseText">
+                Please choose your preferred language
+            </p>
+
+            <div class="language-buttons">
+
+                <button class="language-btn"
+                onclick="chooseLanguage('rw')">
+                    <span><span class="flag">🇷🇼</span> Kinyarwanda</span>
+                    <span class="arrow">›</span>
+                </button>
+
+                <button class="language-btn"
+                onclick="chooseLanguage('fr')">
+                    <span><span class="flag">🇫🇷</span> Français</span>
+                    <span class="arrow">›</span>
+                </button>
+
+                <button class="language-btn"
+                onclick="chooseLanguage('en')">
+                    <span><span class="flag">🇬🇧</span> English</span>
+                    <span class="arrow">›</span>
+                </button>
+
+                <button class="language-btn"
+                onclick="chooseLanguage('sw')">
+                    <span><span class="flag">🇹🇿</span> Kiswahili</span>
+                    <span class="arrow">›</span>
+                </button>
+
+                <button class="language-btn"
+                onclick="chooseLanguage('zh')">
+                    <span><span class="flag">🇨🇳</span> 中文</span>
+                    <span class="arrow">›</span>
+                </button>
+
+            </div>
+
+            <div class="language-footer">
+                Designed by Irene | JOY FLOWERS
+            </div>
+
+        </div>
+
+        <!-- SMALL FLORIST PHOTO -->
+
+        <img
+        src="joy-florist.jpg"
+        class="florist-photo"
+        alt="JOY FLOWERS Florist"
+        onerror="this.style.display='none'">
+
+    </div>
+
+</div>
+
+
+<!-- MAIN WEBSITE -->
+
+<div id="mainWebsite">
+
+    <header>
+
+        <div class="logo">
+            <span>JOY</span> FLOWERS
+        </div>
+
+        <nav>
+            <a href="index.html" id="navHome">HOME</a>
+            <a href="flowers.html" id="navFlowers">FLOWERS</a>
+            <a href="vases.html" id="navVases">VASES</a>
+            <a href="flower-vases.html" id="navBoth">FLOWER AND VASES</a>
+            <a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
+            <a href="rental.html" id="navRental">RENTAL</a>
+            <a href="admin.html">ADMIN</a>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1 id="heroTitle">
+                Welcome to <span>JOY FLOWERS</span>
+            </h1>
+
+            <p id="heroText">
+                Fresh Flowers, Beautiful Moments.
+                Discover beautiful flowers, elegant vases
+                and amazing garden designs.
+            </p>
+
+            <a href="flowers.html"
+            class="explore"
+            id="exploreBtn">
+                Explore Flowers →
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="section">
+
+        <h2 id="productsTitle">Our Products</h2>
+
+        <div class="categories">
+
+            <div class="category">
+                <h3 id="flowersTitle">Flowers</h3>
+                <p>Beautiful fresh flowers for every moment.</p>
+                <a href="flowers.html">Explore →</a>
+            </div>
+
+            <div class="category">
+                <h3 id="vasesTitle">Vases</h3>
+                <p>Elegant vases for beautiful decorations.</p>
+                <a href="vases.html">Explore →</a>
+            </div>
+
+            <div class="category">
+                <h3 id="bothTitle">Flowers and Vases</h3>
+                <p>Beautiful combinations for special moments.</p>
+                <a href="flower-vases.html">Explore →</a>
+            </div>
+
+            <div class="category">
+                <h3 id="gardenTitle">Garden Making</h3>
+                <p>We create beautiful garden spaces.</p>
+                <a href="garden-making.html">Explore →</a>
+            </div>
+
+            <div class="category">
+                <h3 id="rentalTitle">Rental</h3>
+                <p>Rent flowers and decorations for your events.</p>
+                <a href="rental.html">Explore →</a>
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <h2>JOY FLOWERS</h2>
+        <p>Flowers Make Life Better</p>
+        <p>Contact us for beautiful flowers and services.</p>
+        <p>© 2026 JOY FLOWERS. All Rights Reserved.</p>
+    </footer>
+
+</div>
+
+
+<script>
+
+/* LANGUAGE TRANSLATIONS */
+
+const translations = {
+
+rw: {
+    welcome: "Murakaza neza kuri JOY FLOWERS",
+    choose: "Hitamo ururimi ushaka gukoresha",
+    home: "AHABANZA",
+    flowers: "INDABYO",
+    vases: "AMAVASE",
+    both: "INDABYO N'AMAVASE",
+    garden: "GUTUNGANYA UBUSITANI",
+    rental: "GUKODESHA",
+    hero: "Indabyo nziza, ibihe byiza.",
+    description: "Tugurisha indabyo, amavase kandi tunatunganya ubusitani.",
+    explore: "Reba indabyo",
+    products: "Ibicuruzwa byacu"
+},
+
+fr: {
+    welcome: "Bienvenue chez JOY FLOWERS",
+    choose: "Veuillez choisir votre langue",
+    home: "ACCUEIL",
+    flowers: "FLEURS",
+    vases: "VASES",
+    both: "FLEURS ET VASES",
+    garden: "AMÉNAGEMENT DE JARDINS",
+    rental: "LOCATION",
+    hero: "Des fleurs fraîches, de beaux moments.",
+    description: "Découvrez nos fleurs, nos vases et nos services de jardinage.",
+    explore: "Découvrir les fleurs",
+    products: "Nos produits"
+},
+
+en: {
+    welcome: "Welcome to JOY FLOWERS",
+    choose: "Please choose your preferred language",
+    home: "HOME",
+    flowers: "FLOWERS",
+    vases: "VASES",
+    both: "FLOWER AND VASES",
+    garden: "GARDEN MAKING",
+    rental: "RENTAL",
+    hero: "Fresh Flowers, Beautiful Moments.",
+    description: "Discover beautiful flowers, elegant vases and amazing garden designs.",
+    explore: "Explore Flowers",
+    products: "Our Products"
+},
+
+sw: {
+    welcome: "Karibu JOY FLOWERS",
+    choose: "Tafadhali chagua lugha yako",
+    home: "NYUMBANI",
+    flowers: "MAUA",
+    vases: "VASE",
+    both: "MAUA NA VASE",
+    garden: "UTENGENEZAJI WA BUSTANI",
+    rental: "KUKODISHA",
+    hero: "Maua mazuri, nyakati nzuri.",
+    description: "Tunauza maua, vase na tunatengeneza bustani nzuri.",
+    explore: "Tazama maua",
+    products: "Bidhaa zetu"
+},
+
+zh: {
+    welcome: "欢迎来到 JOY FLOWERS",
+    choose: "请选择您的语言",
+    home: "首页",
+    flowers: "鲜花",
+    vases: "花瓶",
+    both: "鲜花和花瓶",
+    garden: "花园设计",
+    rental: "租赁",
+    hero: "鲜花带来美好时刻。",
+    description: "探索美丽的鲜花、花瓶和花园设计服务。",
+    explore: "浏览鲜花",
+    products: "我们的产品"
+}
+
+};
+
+
+function chooseLanguage(language) {
+
+    const t = translations[language];
+
+    document.getElementById("welcome").textContent = t.welcome;
+    document.getElementById("chooseText").textContent = t.choose;
+
+    document.getElementById("navHome").textContent = t.home;
+    document.getElementById("navFlowers").textContent = t.flowers;
+    document.getElementById("navVases").textContent = t.vases;
+    document.getElementById("navBoth").textContent = t.both;
+    document.getElementById("navGarden").textContent = t.garden;
+    document.getElementById("navRental").textContent = t.rental;
+
+    document.getElementById("heroTitle").textContent = t.hero;
+    document.getElementById("heroText").textContent = t.description;
+    document.getElementById("exploreBtn").textContent = t.explore + " →";
+    document.getElementById("productsTitle").textContent = t.products;
+
+    document.getElementById("languageScreen").style.display = "none";
+    document.getElementById("mainWebsite").style.display = "block";
+
+    document.querySelector(".background").style.display = "none";
+
+    document.documentElement.lang = language;
+
+    localStorage.setItem("joyFlowersLanguage", language);
+
+}
+
+</script>
+
+</body>
+</html>
