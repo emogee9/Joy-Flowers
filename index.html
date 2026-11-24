@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,704 +7,1047 @@
 <title>JOY FLOWERS | Flowers Make Life Better</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box;margin:0;padding:0}
 :root{
- --yellow:#f5c928;
+ --pink:#ec168d;
+ --green:#07521d;
  --dark:#292929;
- --white:#fff;
- --gray:#777;
+ --yellow:#ffd900;
 }
 
 body{
  font-family:Arial,sans-serif;
+ color:#222;
  background:#fff;
- color:#292929;
  font-size:13px;
- padding-bottom:85px;
+ padding-bottom:76px;
 }
-
-button,input,textarea{font-family:inherit}
+button,input,textarea{font:inherit}
+a{text-decoration:none;color:inherit}
 
 /* LANGUAGE SCREEN */
-
-.language-screen{
+#languageScreen{
  position:fixed;
  inset:0;
- z-index:1000;
+ z-index:2000;
+ background:#fff;
  display:flex;
  align-items:center;
  justify-content:center;
- padding:15px;
- background:rgba(255,255,255,.95);
+ padding:18px;
 }
-
-.language-box{
- width:100%;
- max-width:500px;
- padding:30px;
- background:white;
- border-radius:18px;
- box-shadow:0 5px 30px rgba(0,0,0,.12);
+.language-card{
+ width:min(430px,100%);
  text-align:center;
+ padding:30px 24px;
+ border-radius:16px;
+ box-shadow:0 8px 35px #00000016;
+ background:#fff;
 }
-
-.logo{
- font-size:34px;
+.brand{
  font-weight:900;
- color:var(--dark);
+ font-size:29px;
+ letter-spacing:-1px;
+ color:var(--green);
 }
-
-.logo span{color:#d6a900}
-
-.tagline{
+.brand b{color:var(--pink)}
+.brand small{
+ display:block;
+ font-family:Georgia,serif;
+ font-style:italic;
+ font-size:12px;
+ color:var(--pink);
+ letter-spacing:0;
+ margin-top:2px;
+}
+.language-card h1{
+ font-size:21px;
+ margin:24px 0 8px;
+ color:var(--green);
+}
+.language-card p{
  color:#777;
  font-size:12px;
- margin-top:5px;
+ margin-bottom:18px;
 }
-
-.welcome{
- margin-top:25px;
- font-size:22px;
-}
-
-.description{
- color:#777;
- font-size:13px;
- margin:10px 0 20px;
-}
-
-.language-buttons{
- display:flex;
- flex-direction:column;
+.language-options{
+ display:grid;
  gap:9px;
 }
-
-.language-btn{
- width:100%;
- padding:13px 17px;
- border:1px solid #eee;
+.language-options button{
+ border:1px solid #f2d8e7;
  border-radius:8px;
- background:white;
- color:#292929;
- font-size:13px;
- font-weight:bold;
+ padding:12px;
+ background:#fff;
+ color:#333;
+ font-weight:700;
+ text-align:left;
  cursor:pointer;
- display:flex;
- justify-content:space-between;
 }
-
-.language-btn:nth-child(odd){
- background:var(--yellow);
- border-color:var(--yellow);
+.language-options button:hover{
+ background:var(--pink);
+ color:#fff;
 }
+.language-options span{float:right}
 
-.language-btn:hover{
- background:#292929;
- color:white;
-}
-
-.language-footer{
- margin-top:20px;
- font-size:11px;
- color:#777;
-}
-
-/* MAIN WEBSITE */
-
-#mainWebsite{
- display:none;
- min-height:100vh;
- background:white;
-}
-
-header{
- background:white;
- padding:13px 5%;
+/* TOP BAR */
+.topline{
+ height:27px;
+ background:linear-gradient(90deg,#ec168d,#f044b0);
+ color:#fff;
  display:flex;
  align-items:center;
  justify-content:space-between;
- flex-wrap:wrap;
- gap:12px;
- box-shadow:0 2px 10px rgba(0,0,0,.08);
+ padding:0 4%;
+ font-size:11px;
+ font-weight:bold;
+}
+.topline div{
+ display:flex;
+ gap:18px;
 }
 
-header .logo{font-size:25px}
+/* HEADER */
+header{
+ min-height:65px;
+ padding:10px 4%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:16px;
+ background:#fff;
+ box-shadow:0 2px 12px #0000000d;
+ position:relative;
+ z-index:10;
+}
+.header-brand{
+ display:flex;
+ align-items:center;
+ gap:9px;
+}
+.rose-mark{
+ font-size:38px;
+ color:var(--pink);
+ line-height:1;
+}
+.header-brand .brand{font-size:25px}
+.header-brand .brand small{font-size:10px}
 
 nav{
  display:flex;
  align-items:center;
- gap:16px;
+ gap:17px;
  flex-wrap:wrap;
 }
-
 nav a{
- text-decoration:none;
- color:#292929;
- font-weight:bold;
- font-size:11px;
+ font-size:10px;
+ font-weight:800;
+ color:#29212a;
+}
+nav a.active,
+nav a:hover{
+ background:var(--pink);
+ color:#fff;
+ padding:10px 16px;
+ border-radius:22px;
+}
+.head-icons{
+ display:flex;
+ gap:17px;
+ font-size:22px;
+}
+.head-icons button{
+ border:0;
+ background:none;
+ cursor:pointer;
+ position:relative;
+}
+.cart-bubble{
+ position:absolute;
+ top:-5px;
+ right:-8px;
+ background:var(--pink);
+ color:white;
+ font-size:10px;
+ border-radius:50%;
+ padding:3px 5px;
 }
 
-nav a:hover{color:#c69b00}
-
+/* HERO */
 .hero{
- min-height:430px;
- padding:60px 7%;
+ min-height:350px;
  display:flex;
  align-items:center;
+ padding:45px 6%;
  background:
- linear-gradient(90deg,rgba(255,255,255,.94),rgba(255,255,255,.15)),
- url("background.jpg") center/cover;
+ linear-gradient(90deg,#fff4fa 0%,#fff0f8dd 42%,#ffffff10 100%),
+ url('images/hero-flowers.jpg') center/cover no-repeat;
 }
-
-.hero-content{max-width:520px}
-
+.hero-copy{max-width:470px}
+.script-title{
+ font-family:Georgia,serif;
+ font-style:italic;
+ color:var(--green);
+ font-size:clamp(30px,4vw,49px);
+ margin-left:8px;
+}
 .hero h1{
- font-size:clamp(30px,5vw,53px);
- margin-bottom:15px;
+ font-family:Georgia,serif;
+ color:var(--pink);
+ font-size:clamp(55px,8vw,88px);
+ line-height:.95;
+ margin:0 0 8px;
 }
-
-.hero h1 span{color:#c49a00}
-
+.hero h2{
+ font-family:Georgia,serif;
+ font-size:21px;
+ color:var(--green);
+ font-style:italic;
+ margin-bottom:11px;
+}
 .hero p{
- font-size:15px;
- line-height:1.6;
- margin-bottom:22px;
+ font-size:14px;
+ line-height:1.55;
+ max-width:340px;
+ margin-bottom:18px;
 }
-
-.explore{
+.pink-btn{
  display:inline-block;
- background:var(--yellow);
- color:#292929;
- padding:12px 23px;
- border-radius:6px;
- text-decoration:none;
+ background:var(--pink);
+ color:#fff;
+ padding:12px 21px;
+ border-radius:24px;
  font-weight:bold;
  font-size:12px;
+ border:0;
+ cursor:pointer;
+ box-shadow:0 3px 8px #ec168d2b;
 }
+.pink-btn:hover{background:#c90d73}
 
-.section{
- padding:42px 5%;
+/* PRODUCTS */
+.section{padding:16px 2% 22px}
+.section-heading{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:16px;
+ margin:0 auto 14px;
+}
+.section-heading:before,
+.section-heading:after{
+ content:'';
+ height:2px;
+ width:9%;
+ background:var(--pink);
+}
+.section-heading h2{
+ font-family:Georgia,serif;
+ font-size:28px;
+ color:var(--green);
  text-align:center;
 }
-
-.section h2{
- font-size:25px;
- margin-bottom:25px;
-}
-
-.categories{
+.product-grid{
  display:grid;
- grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
- gap:15px;
+ grid-template-columns:repeat(6,minmax(0,1fr));
+ gap:12px;
 }
-
-.category{
- padding:27px 15px;
- background:#fffaf0;
- border:1px solid #f1df9b;
+.product-card{
+ position:relative;
+ overflow:hidden;
  border-radius:10px;
-}
-
-.category h3{
- font-size:15px;
- margin-bottom:9px;
-}
-
-.category p{
- color:#777;
- font-size:12px;
- line-height:1.5;
-}
-
-.category a{
- display:inline-block;
- margin-top:13px;
- text-decoration:none;
- color:#8c6b00;
- font-weight:bold;
- font-size:12px;
-}
-
-footer{
- padding:28px;
+ border:1px solid #eadde5;
+ box-shadow:0 2px 8px #00000017;
+ background:#fff;
  text-align:center;
- background:#292929;
- color:white;
- font-size:12px;
+ padding-bottom:9px;
 }
-
-footer p{margin:7px}
-
-/* BOTTOM SELECTION BAR */
-
-.selection-bar{
- position:fixed;
+.product-card img{
+ width:100%;
+ height:145px;
+ display:block;
+ object-fit:cover;
+ background:#fff0f8;
+}
+.product-card h3{
+ font-size:13px;
+ margin:9px 4px 5px;
+}
+.price{
+ color:#c80d69;
+ font-size:13px;
+ font-weight:800;
+}
+.card-actions{
+ display:flex;
+ justify-content:center;
+ gap:5px;
+ margin:9px 5px 0;
+}
+.card-actions button{
+ border:0;
+ border-radius:20px;
+ padding:8px 12px;
+ font-size:11px;
+ font-weight:bold;
+ cursor:pointer;
+}
+.view-btn{
+ background:var(--pink);
+ color:white;
+}
+.order-btn{
+ background:var(--yellow);
+ color:#222;
+}
+.sold-tag{
+ position:absolute;
+ top:9px;
+ left:8px;
+ background:#d71945;
+ color:#fff;
+ font-weight:900;
+ font-size:10px;
+ padding:6px 9px;
+ border-radius:4px;
+}
+.product-card.sold:after{
+ content:'SOLD';
+ position:absolute;
+ top:45%;
  left:0;
  right:0;
- bottom:0;
- z-index:900;
- min-height:72px;
- padding:10px 16px;
- background:#292929;
+ background:#292929d9;
+ color:#fff;
+ font-weight:900;
+ font-size:19px;
+ padding:10px;
+ transform:rotate(-8deg);
+}
+.product-card.sold .order-btn{
+ background:#bbb;
+ color:#fff;
+ cursor:not-allowed;
+}
+
+.explore-row{
+ text-align:center;
+ padding:18px 0 8px;
+}
+.outline-btn{
+ display:inline-block;
+ border:1px solid var(--pink);
+ color:var(--pink);
+ border-radius:22px;
+ padding:10px 22px;
+ font-weight:bold;
+ font-size:12px;
+}
+.outline-btn:hover{
+ background:var(--pink);
  color:white;
+}
+
+/* DELIVERY AND PICKUP */
+.service-grid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;
+ padding:0 2% 16px;
+}
+.service-card{
+ min-height:150px;
+ border-radius:12px;
+ overflow:hidden;
+ background:linear-gradient(110deg,#ffe2f2,#fff6fb);
  display:flex;
+ align-items:center;
+ justify-content:space-around;
+ padding:18px;
+ gap:12px;
+}
+.service-icon{
+ font-size:42px;
+ color:var(--pink);
+}
+.service-card h3{
+ font-family:Georgia,serif;
+ font-size:21px;
+ color:var(--green);
+ margin-bottom:8px;
+}
+.service-card p{
+ line-height:1.5;
+ margin-bottom:12px;
+ font-size:13px;
+}
+.shop-placeholder{
+ border:1px dashed #e9a5cb;
+ background:#fffafd;
+ min-height:125px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:20px;
+ color:#9a4775;
+ border-radius:8px;
+ width:48%;
+ font-size:12px;
+}
+
+/* LOCATION */
+.location-strip{
+ margin:0 2% 16px;
+ border-radius:10px;
+ background:#ffe8f4;
+ display:flex;
+ align-items:center;
+ justify-content:space-around;
+ padding:17px;
+ gap:15px;
+}
+.location-strip h3{
+ font:bold 23px Georgia,serif;
+ color:var(--green);
+ margin-bottom:5px;
+}
+.location-strip p{
+ font-size:12px;
+ margin-bottom:10px;
+}
+.map-placeholder{
+ width:48%;
+ min-height:90px;
+ border-radius:8px;
+ background:linear-gradient(135deg,#d7ead1,#f4e8c8,#d6e7f0);
+ display:grid;
+ place-items:center;
+ color:#36513a;
+ font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+ background:#064817;
+ color:#fff;
+}
+.footer-main{
+ display:grid;
+ grid-template-columns:1.4fr 1fr 1fr 1.3fr;
+ gap:20px;
+ padding:25px 5%;
+}
+.footer-main h3{
+ font-size:14px;
+ margin-bottom:10px;
+}
+.footer-main a{
+ display:block;
+ margin:7px 0;
+ font-size:12px;
+}
+.footer-brand{
+ font:bold 25px Georgia,serif;
+}
+.socials{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ flex-wrap:wrap;
+}
+.socials a{
+ background:#fff;
+ color:#07521d;
+ width:30px;
+ height:30px;
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ font-weight:bold;
+}
+.whatsapp{
+ background:var(--yellow)!important;
+ color:#222!important;
+ border-radius:24px!important;
+ width:auto!important;
+ padding:0 13px;
+ font-size:11px;
+}
+.copyright{
+ background:var(--pink);
+ padding:13px 4%;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+ font-size:11px;
+ font-weight:bold;
+}
+
+/* MY SELECTION BAR */
+.selection-bar{
+ display:none;
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ z-index:1000;
+ background:#252525;
+ color:#fff;
+ min-height:66px;
+ padding:8px 16px;
  align-items:center;
  justify-content:space-between;
  gap:10px;
- box-shadow:0 -3px 15px rgba(0,0,0,.2);
+ box-shadow:0 -3px 15px #0002;
 }
-
 .selection-left{
  display:flex;
  align-items:center;
  gap:10px;
- min-width:0;
 }
-
 .selection-count{
- min-width:36px;
- height:36px;
+ width:35px;
+ height:35px;
  border-radius:50%;
+ background:var(--pink);
+ color:white;
  display:grid;
  place-items:center;
- background:var(--yellow);
- color:#222;
  font-weight:bold;
 }
-
 .selection-info strong{
  display:block;
  font-size:12px;
 }
-
 .selection-info small{
  display:block;
- margin-top:4px;
  color:#ddd;
  font-size:11px;
+ margin-top:4px;
 }
-
 .selection-actions{
  display:flex;
  gap:7px;
 }
-
-.selection-bar button{
+.selection-actions button{
  border:0;
  border-radius:5px;
- padding:11px 13px;
+ padding:10px 13px;
  background:var(--yellow);
- color:#292929;
+ color:#222;
  font-size:11px;
  font-weight:bold;
  cursor:pointer;
 }
+.selection-actions .my-btn{background:#fff}
 
-.selection-bar .my-btn{
- background:white;
-}
-
-/* MY SELECTION PANEL */
-
-.selection-overlay{
+/* SELECTION PANEL */
+.overlay{
  display:none;
  position:fixed;
  inset:0;
- z-index:1200;
- background:rgba(0,0,0,.6);
+ z-index:1500;
+ background:#0009;
  align-items:flex-end;
  justify-content:center;
  padding:12px;
 }
-
-.selection-overlay.show{display:flex}
-
-.selection-panel{
- width:100%;
- max-width:700px;
+.overlay.show{display:flex}
+.panel{
+ width:min(700px,100%);
  max-height:90vh;
- overflow-y:auto;
+ overflow:auto;
  background:white;
  border-radius:14px;
  padding:18px;
 }
-
 .panel-head{
  display:flex;
  justify-content:space-between;
  align-items:center;
- padding-bottom:14px;
  border-bottom:1px solid #eee;
+ padding-bottom:12px;
 }
-
 .panel-head h2{
  font-size:19px;
+ color:var(--green);
 }
-
 .close-btn{
  border:0;
- background:#eee;
+ border-radius:50%;
  width:32px;
  height:32px;
- border-radius:50%;
  font-size:20px;
  cursor:pointer;
 }
-
-.selection-empty{
- padding:30px 10px;
+.empty{
  text-align:center;
  color:#777;
- font-size:13px;
+ padding:28px 8px;
 }
-
 .selection-item{
  display:flex;
  justify-content:space-between;
  gap:12px;
- padding:14px 0;
  border-bottom:1px solid #eee;
+ padding:13px 0;
 }
-
 .selection-item h4{
  font-size:13px;
- margin-bottom:6px;
+ margin-bottom:5px;
 }
-
 .selection-item p{
  font-size:12px;
  color:#666;
- line-height:1.6;
+ line-height:1.5;
 }
-
-.selection-item-total{
- font-size:13px;
- font-weight:bold;
- white-space:nowrap;
-}
-
 .item-controls{
  display:flex;
- align-items:center;
  gap:7px;
+ align-items:center;
  margin-top:8px;
 }
-
-.quantity-btn,.remove-btn{
+.item-controls button{
  border:0;
  padding:6px 10px;
  border-radius:5px;
  background:#eee;
  cursor:pointer;
- font-size:12px;
 }
-
-.remove-btn{
- color:#b00020;
+.item-controls .remove{color:#b00020}
+.item-total{
+ font-weight:bold;
+ white-space:nowrap;
 }
-
 .totals{
- margin-top:15px;
- padding:14px;
- background:#fff9e7;
+ margin-top:14px;
+ padding:13px;
+ background:#fff4fa;
  border-radius:8px;
 }
-
 .total-line{
  display:flex;
  justify-content:space-between;
  padding:6px 0;
  font-size:12px;
 }
-
 .total-line.grand{
- border-top:1px solid #e5d7a8;
- margin-top:7px;
- padding-top:12px;
+ border-top:1px solid #edc7dc;
+ margin-top:6px;
+ padding-top:11px;
  font-size:16px;
  font-weight:bold;
+ color:var(--green);
 }
-
 .discount-note{
- margin-top:8px;
  font-size:11px;
- color:#397a37;
+ color:#34713b;
+ margin-top:7px;
 }
 
 /* ORDER FORM */
-
 .order-form{
  display:none;
- margin-top:17px;
+ margin-top:16px;
 }
-
 .order-form.show{display:block}
-
 .order-form h3{
  font-size:16px;
- margin-bottom:12px;
+ margin-bottom:10px;
 }
-
 .order-form label{
  display:block;
- font-size:12px;
  font-weight:bold;
- margin:12px 0 6px;
+ font-size:12px;
+ margin:11px 0 5px;
 }
-
 .order-form input,
 .order-form textarea{
  width:100%;
- padding:12px;
+ padding:11px;
  border:1px solid #ddd;
  border-radius:6px;
  font-size:13px;
 }
-
-.order-form textarea{
- min-height:75px;
- resize:vertical;
-}
-
+.order-form textarea{min-height:70px}
 .send-order{
  width:100%;
- padding:13px;
- margin-top:14px;
+ margin-top:13px;
+ padding:12px;
+ background:var(--pink);
+ color:#fff;
  border:0;
  border-radius:6px;
- background:var(--yellow);
  font-weight:bold;
  cursor:pointer;
- font-size:12px;
 }
-
-.order-message{
+.success{
  display:none;
- margin-top:15px;
- padding:15px;
- background:#eef8ed;
- color:#245b26;
+ margin-top:14px;
+ padding:14px;
+ background:#edf8ed;
+ color:#225b28;
  border-radius:8px;
- font-size:13px;
  line-height:1.6;
 }
-
-.order-message.show{display:block}
+.success.show{display:block}
 
 /* RESPONSIVE */
-
-@media(max-width:700px){
-
- .language-box{padding:23px 17px}
- .language-box .logo{font-size:29px}
- .welcome{font-size:20px}
-
- header{justify-content:center}
- nav{justify-content:center;gap:12px}
- nav a{font-size:10px}
-
+@media(max-width:950px){
+ .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .product-card img{height:155px}
+ header{align-items:flex-start}
+ .head-icons{margin-left:auto}
+}
+@media(max-width:600px){
+ .topline{font-size:9px;padding:0 3%}
+ .topline div{gap:8px}
+ header{
+  padding:10px 3%;
+  justify-content:center;
+ }
+ .header-brand .brand{font-size:22px}
+ nav{justify-content:center;gap:7px}
+ nav a{font-size:9px}
+ nav a.active,nav a:hover{padding:8px 10px}
+ .head-icons{display:none}
  .hero{
-  min-height:390px;
-  padding:40px 6%;
+  min-height:300px;
+  padding:28px 5%;
+  background-position:58% center;
  }
-
- .hero p{font-size:14px}
-
- .section{padding:32px 5%}
-
- .categories{
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+ .hero p{max-width:260px;font-size:12px}
+ .hero h2{font-size:16px}
+ .section-heading h2{font-size:21px}
+ .product-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
  }
-
- .category{padding:20px 10px}
-
+ .product-card img{height:135px}
+ .card-actions button{padding:7px 10px;font-size:10px}
+ .service-grid{grid-template-columns:1fr}
+ .service-card{min-height:130px}
+ .location-strip{
+  flex-direction:column;
+  align-items:stretch;
+ }
+ .map-placeholder{width:100%}
+ .footer-main{
+  grid-template-columns:1fr 1fr;
+  padding:20px 5%;
+ }
+ .copyright{font-size:9px;flex-wrap:wrap}
  .selection-bar{
-  min-height:82px;
-  padding:9px;
+  padding:8px;
+  min-height:68px;
  }
-
- .selection-info strong{font-size:11px}
- .selection-info small{font-size:10px}
-
- .selection-bar button{
-  padding:10px 9px;
+ .selection-actions button{
+  padding:9px 8px;
   font-size:10px;
  }
-
- .selection-panel{padding:14px}
-
- .selection-item{
-  flex-direction:column;
- }
-
- .selection-item-total{text-align:left}
+ .selection-info strong{font-size:11px}
+ .selection-info small{font-size:10px}
 }
-
 </style>
 </head>
 
 <body>
 
 <!-- LANGUAGE SCREEN -->
+<div id="languageScreen">
+ <div class="language-card">
 
-<div class="language-screen" id="languageScreen">
-
- <div class="language-box">
-
-  <div class="logo"><span>JOY</span> FLOWERS</div>
-
-  <div class="tagline">Flowers Make Life Better</div>
-
-  <h2 class="welcome" id="welcome">
-   Welcome to JOY FLOWERS
-  </h2>
-
-  <p class="description" id="chooseText">
-   Please choose your preferred language
-  </p>
-
-  <div class="language-buttons">
-
-   <button class="language-btn" onclick="chooseLanguage('rw')">
-    🇷🇼 Kinyarwanda <span>›</span>
-   </button>
-
-   <button class="language-btn" onclick="chooseLanguage('fr')">
-    🇫🇷 Français <span>›</span>
-   </button>
-
-   <button class="language-btn" onclick="chooseLanguage('en')">
-    🇬🇧 English <span>›</span>
-   </button>
-
-   <button class="language-btn" onclick="chooseLanguage('sw')">
-    🇹🇿 Kiswahili <span>›</span>
-   </button>
-
-   <button class="language-btn" onclick="chooseLanguage('zh')">
-    🇨🇳 中文 <span>›</span>
-   </button>
-
+  <div class="brand">
+   <b>JOY</b> FLOWERS
+   <small>— Flowers Make Life Better —</small>
   </div>
 
-  <div class="language-footer">
-   Designed by Irene | JOY FLOWERS
+  <h1 id="languageTitle">Welcome to JOY FLOWERS</h1>
+  <p id="languagePrompt">Please choose your preferred language</p>
+
+  <div class="language-options">
+   <button onclick="chooseLanguage('en')">🇬🇧 English <span>›</span></button>
+   <button onclick="chooseLanguage('fr')">🇫🇷 Français <span>›</span></button>
+   <button onclick="chooseLanguage('rw')">🇷🇼 Kinyarwanda <span>›</span></button>
+   <button onclick="chooseLanguage('sw')">🇹🇿 Kiswahili <span>›</span></button>
+   <button onclick="chooseLanguage('zh')">🇨🇳 中文 <span>›</span></button>
   </div>
 
  </div>
-
 </div>
 
 <!-- MAIN WEBSITE -->
+<div id="website" style="display:none">
 
-<div id="mainWebsite">
+ <div class="topline">
+  <div>
+   <span>☎ +250 799 645 553</span>
+   <span>✉ info@joyflowers.rw</span>
+  </div>
+  <span>📍 Kigali, Rwanda</span>
+ </div>
 
-<header>
+ <header>
 
- <div class="logo"><span>JOY</span> FLOWERS</div>
-
- <nav>
-  <a href="index.html" id="navHome">HOME</a>
-  <a href="flowers.html" id="navFlowers">FLOWERS</a>
-  <a href="vases.html" id="navVases">VASES</a>
-  <a href="flower-vases.html" id="navBoth">FLOWER AND VASES</a>
-  <a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
-  <a href="rental.html" id="navRental">RENTAL</a>
-  <a href="admin.html">ADMIN</a>
- </nav>
-
-</header>
-
-<section class="hero">
-
- <div class="hero-content">
-
-  <h1 id="heroTitle">
-   Welcome to <span>JOY FLOWERS</span>
-  </h1>
-
-  <p id="heroText">
-   Fresh Flowers, Beautiful Moments.
-   Discover beautiful flowers, elegant vases
-   and amazing garden designs.
-  </p>
-
-  <a href="flowers.html" class="explore" id="exploreBtn">
-   Explore Flowers →
+  <a class="header-brand" href="index.html">
+   <span class="rose-mark">🌹</span>
+   <span class="brand">
+    <b>JOY</b> FLOWERS
+    <small>— Flowers Make Life Better —</small>
+   </span>
   </a>
 
- </div>
+  <nav>
+   <a class="active" href="index.html" id="navHome">HOME</a>
+   <a href="flowers.html" id="navFlowers">FLOWERS⌄</a>
+   <a href="vases.html" id="navVases">VASES⌄</a>
+   <a href="flower-vases.html" id="navBoth">FLOWER AND VASES⌄</a>
+   <a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
+   <a href="rental.html" id="navRental">RENTAL</a>
+   <a href="admin.html" style="color:#d88ab5">ADMIN</a>
+  </nav>
 
-</section>
-
-<section class="section">
-
- <h2 id="productsTitle">Our Products</h2>
-
- <div class="categories">
-
-  <div class="category">
-   <h3 id="flowersTitle">Flowers</h3>
-   <p>Beautiful fresh flowers for every moment.</p>
-   <a href="flowers.html">Explore →</a>
+  <div class="head-icons">
+   <button aria-label="Search">⌕</button>
+   <button onclick="openSelection(false)" aria-label="Cart">
+    🛒<span class="cart-bubble" id="cartBubble">0</span>
+   </button>
   </div>
 
-  <div class="category">
-   <h3 id="vasesTitle">Vases</h3>
-   <p>Elegant vases for beautiful decorations.</p>
-   <a href="vases.html">Explore →</a>
+ </header>
+
+ <!-- HERO: NO PERSON PHOTO -->
+ <section class="hero">
+  <div class="hero-copy">
+
+   <div class="script-title" id="heroScript">Beautiful</div>
+
+   <h1 id="heroWord">Flowers</h1>
+
+   <h2 id="heroSub">Fresh Flowers, Beautiful Moments.</h2>
+
+   <p id="heroDescription">
+    Discover our fresh flowers, elegant vases and amazing garden designs.
+   </p>
+
+   <a class="pink-btn" href="flowers.html" id="heroButton">
+    Explore Flowers →
+   </a>
+
+  </div>
+ </section>
+
+ <!-- PRODUCTS -->
+ <section class="section" id="products">
+
+  <div class="section-heading">
+   <h2 id="collectionTitle">Our Flowers & Vases Collection</h2>
   </div>
 
-  <div class="category">
-   <h3 id="bothTitle">Flowers and Vases</h3>
-   <p>Beautiful combinations for special moments.</p>
-   <a href="flower-vases.html">Explore →</a>
+  <div class="product-grid" id="productGrid">
+
+   <article class="product-card"
+    data-name="Red Roses" data-price="15000">
+    <img src="images/red-roses.jpg" alt="Red roses">
+    <h3>Red Roses</h3>
+    <div class="price">RWF 15,000</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='flowers.html'">◉ View</button>
+     <button class="order-btn" onclick="addProductFromCard(this)">🛒 Order</button>
+    </div>
+   </article>
+
+   <article class="product-card"
+    data-name="Pink Roses" data-price="14000">
+    <img src="images/pink-roses.jpg" alt="Pink roses">
+    <h3>Pink Roses</h3>
+    <div class="price">RWF 14,000</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='flowers.html'">◉ View</button>
+     <button class="order-btn" onclick="addProductFromCard(this)">🛒 Order</button>
+    </div>
+   </article>
+
+   <article class="product-card sold"
+    data-name="Sunflowers" data-price="12000">
+    <span class="sold-tag">SOLD</span>
+    <img src="images/sunflowers.jpg" alt="Sunflowers">
+    <h3>Sunflowers</h3>
+    <div class="price">RWF 12,000</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='flowers.html'">◉ View</button>
+     <button class="order-btn" disabled>SOLD OUT</button>
+    </div>
+   </article>
+
+   <article class="product-card"
+    data-name="Glass Vase" data-price="10000">
+    <img src="images/glass-vase.jpg" alt="Glass vase">
+    <h3>Glass Vase</h3>
+    <div class="price">RWF 10,000</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='vases.html'">◉ View</button>
+     <button class="order-btn" onclick="addProductFromCard(this)">🛒 Order</button>
+    </div>
+   </article>
+
+   <article class="product-card sold"
+    data-name="Ceramic Vase" data-price="18000">
+    <span class="sold-tag">SOLD</span>
+    <img src="images/ceramic-vase.jpg" alt="Ceramic vase">
+    <h3>Ceramic Vase</h3>
+    <div class="price">RWF 18,000</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='vases.html'">◉ View</button>
+     <button class="order-btn" disabled>SOLD OUT</button>
+    </div>
+   </article>
+
+   <article class="product-card"
+    data-name="Decorative Vase" data-price="12500">
+    <img src="images/decorative-vase.jpg" alt="Decorative vase">
+    <h3>Decorative Vase</h3>
+    <div class="price">RWF 12,500</div>
+    <div class="card-actions">
+     <button class="view-btn" onclick="location.href='vases.html'">◉ View</button>
+     <button class="order-btn" onclick="addProductFromCard(this)">🛒 Order</button>
+    </div>
+   </article>
+
   </div>
 
-  <div class="category">
-   <h3 id="gardenTitle">Garden Making</h3>
-   <p>We create beautiful garden spaces.</p>
-   <a href="garden-making.html">Explore →</a>
+  <div class="explore-row">
+   <a class="outline-btn" href="flowers.html" id="exploreOther">
+    Explore Other Products →
+   </a>
   </div>
 
-  <div class="category">
-   <h3 id="rentalTitle">Rental</h3>
-   <p>Rent flowers and decorations for your events.</p>
-   <a href="rental.html">Explore →</a>
+ </section>
+
+ <!-- DELIVERY AND PICKUP -->
+ <section class="service-grid">
+
+  <div class="service-card">
+   <div class="service-icon">🚚</div>
+   <div>
+    <h3 id="deliveryTitle">Delivery Service</h3>
+    <p id="deliveryText">We deliver flowers and vases to your doorstep.</p>
+    <a class="pink-btn" href="flowers.html" id="deliveryButton">
+     Order Now →
+    </a>
+   </div>
   </div>
 
- </div>
+  <div class="service-card">
 
-</section>
+   <!-- SHOP PHOTO WILL BE ADDED LATER -->
+   <div class="shop-placeholder">
+    <div>
+     <strong>JOY FLOWERS SHOP</strong>
+     <br>
+     Shop photo will be added here
+    </div>
+   </div>
 
-<footer>
- <h2>JOY FLOWERS</h2>
- <p>Flowers Make Life Better</p>
- <p>Contact us for beautiful flowers and services.</p>
- <p>© 2026 JOY FLOWERS. All Rights Reserved.</p>
-</footer>
+   <div>
+    <h3 id="pickupTitle">Pick Up</h3>
+    <p id="pickupText">You can also come and pick up your order.</p>
+    <a class="pink-btn" href="contact.html" id="pickupButton">
+     Contact Us →
+    </a>
+   </div>
+
+  </div>
+
+ </section>
+
+ <!-- LOCATION -->
+ <section class="location-strip">
+
+  <div>
+   <h3 id="locationTitle">Our Location</h3>
+   <p id="locationText">Find us easily on Google Maps.</p>
+
+   <a class="pink-btn"
+    href="https://maps.google.com/?q=Kigali+Rwanda"
+    target="_blank"
+    rel="noopener"
+    id="locationButton">
+    View Location →
+   </a>
+  </div>
+
+  <div class="map-placeholder">
+   📍 JOY FLOWERS · Kigali, Rwanda
+  </div>
+
+ </section>
+
+ <!-- FOOTER -->
+ <footer>
+
+  <div class="footer-main">
+
+   <div>
+    <div class="footer-brand">🌹 JOY FLOWERS</div>
+    <p style="font:italic 12px Georgia;margin-top:7px">
+     — Flowers Make Life Better —
+    </p>
+   </div>
+
+   <div>
+    <h3>Quick Links</h3>
+    <a href="index.html">Home</a>
+    <a href="flowers.html">Flowers</a>
+    <a href="vases.html">Vases</a>
+   </div>
+
+   <div>
+    <h3>Our Services</h3>
+    <a href="garden-making.html">Garden Making</a>
+    <a href="rental.html">Rental</a>
+    <a href="contact.html">Contact Us</a>
+   </div>
+
+   <div>
+    <h3>Follow Us</h3>
+    <div class="socials">
+     <a href="#">f</a>
+     <a href="https://wa.me/250799645553">◉</a>
+     <a href="#">▶</a>
+     <a href="#">♪</a>
+     <a class="whatsapp" href="https://wa.me/250799645553">
+      Chat on WhatsApp
+     </a>
+    </div>
+   </div>
+
+  </div>
+
+  <div class="copyright">
+   <span>© 2026 JOY FLOWERS. All rights reserved.</span>
+   <span>♡ Designed by Irene – Chat Now – Facebook</span>
+  </div>
+
+ </footer>
 
 </div>
 
-<!-- BOTTOM BAR -->
-
-<div class="selection-bar" id="selectionBar">
+<!-- MY SELECTION BAR -->
+<div class="selection-bar">
 
  <div class="selection-left">
-
   <div class="selection-count" id="selectionCount">0</div>
 
   <div class="selection-info">
    <strong>MY SELECTION</strong>
    <small>
-    <span id="selectionBarItems">0 items</span>
+    <span id="selectionItemsCount">0 items</span>
     ·
     <span id="selectionBarTotal">0 FRW</span>
    </small>
   </div>
-
  </div>
 
  <div class="selection-actions">
@@ -719,36 +1063,35 @@ footer p{margin:7px}
 </div>
 
 <!-- SELECTION PANEL -->
+<div class="overlay" id="selectionOverlay"
+ onclick="if(event.target===this)closeSelection()">
 
-<div class="selection-overlay" id="selectionOverlay"
- onclick="overlayClose(event)">
-
- <div class="selection-panel">
+ <div class="panel">
 
   <div class="panel-head">
    <h2>My Selection</h2>
    <button class="close-btn" onclick="closeSelection()">×</button>
   </div>
 
-  <div id="selectionItems" class="selection-empty">
-   You have not selected any flowers or vases yet.
+  <div id="selectionList" class="empty">
+   You have not selected any products yet.
   </div>
 
   <div class="totals">
 
    <div class="total-line">
     <span>Subtotal</span>
-    <strong id="selectionSubtotal">0 FRW</strong>
+    <strong id="subtotal">0 FRW</strong>
    </div>
 
    <div class="total-line">
     <span>Discount</span>
-    <strong id="selectionDiscount">0 FRW</strong>
+    <strong id="discount">0 FRW</strong>
    </div>
 
    <div class="total-line grand">
     <span>TOTAL</span>
-    <strong id="selectionGrandTotal">0 FRW</strong>
+    <strong id="grandTotal">0 FRW</strong>
    </div>
 
    <p class="discount-note" id="discountNote">
@@ -757,26 +1100,17 @@ footer p{margin:7px}
 
   </div>
 
-  <!-- CUSTOMER INFORMATION -->
-
+  <!-- ORDER FORM -->
   <form class="order-form" id="orderForm">
 
    <h3>Delivery Information</h3>
 
-   <label for="customerPhone">Phone Number</label>
-   <input
-    type="tel"
-    id="customerPhone"
-    placeholder="Enter your phone number"
-    required
-   >
+   <label for="phone">Phone number</label>
+   <input id="phone" type="tel" required placeholder="07XXXXXXXX">
 
-   <label for="customerLocation">Your Location</label>
-   <textarea
-    id="customerLocation"
-    placeholder="Enter your location"
-    required
-   ></textarea>
+   <label for="address">Your location</label>
+   <textarea id="address" required
+    placeholder="District, sector, street or nearby landmark"></textarea>
 
    <button class="send-order" type="submit">
     SEND ORDER
@@ -784,274 +1118,327 @@ footer p{margin:7px}
 
   </form>
 
-  <div class="order-message" id="orderMessage">
-   Your order has been received successfully!
+  <div class="success" id="successMessage">
+   Your order has been received.
 
-   Please wait a little. Our staff member will contact you
+   Please wait a little; our staff member will contact you
    within 5 minutes.
 
    Thank you for choosing JOY FLOWERS.
   </div>
 
  </div>
-
 </div>
 
 <script>
 
 /* LANGUAGE TRANSLATIONS */
 
-const translations={
+const TEXT={
+
+ en:{
+  home:'HOME',
+  flowers:'FLOWERS⌄',
+  vases:'VASES⌄',
+  both:'FLOWER AND VASES⌄',
+  garden:'GARDEN MAKING',
+  rental:'RENTAL',
+  script:'Beautiful',
+  word:'Flowers',
+  sub:'Fresh Flowers, Beautiful Moments.',
+  desc:'Discover our fresh flowers, elegant vases and amazing garden designs.',
+  explore:'Explore Flowers →',
+  collection:'Our Flowers & Vases Collection',
+  other:'Explore Other Products →',
+  delivery:'Delivery Service',
+  deliveryText:'We deliver flowers and vases to your doorstep.',
+  pickup:'Pick Up',
+  pickupText:'You can also come and pick up your order.',
+  location:'Our Location',
+  locationText:'Find us easily on Google Maps.',
+  viewLocation:'View Location →'
+ },
 
  rw:{
-  welcome:"Murakaza neza kuri JOY FLOWERS",
-  choose:"Hitamo ururimi ushaka gukoresha",
-  home:"AHABANZA",
-  flowers:"INDABYO",
-  vases:"AMAVASE",
-  both:"INDABYO N'AMAVASE",
-  garden:"GUTUNGANYA UBUSITANI",
-  rental:"GUKODESHA",
-  hero:"Indabyo nziza, ibihe byiza.",
-  description:"Tugurisha indabyo, amavase kandi tunatunganya ubusitani.",
-  explore:"Reba indabyo",
-  products:"Ibicuruzwa byacu"
+  home:'AHABANZA',
+  flowers:'INDABYO⌄',
+  vases:'AMAVAZE⌄',
+  both:'INDABYO N’AMAVAZE⌄',
+  garden:'GUTUNGANYA UBUSITANI',
+  rental:'GUKODESHA',
+  script:'Indabyo nziza',
+  word:'Indabyo',
+  sub:'Indabyo nziza, ibihe byiza.',
+  desc:'Dufite indabyo nziza, amavaze n’ibikoresho byo gutaka ubusitani.',
+  explore:'Reba indabyo →',
+  collection:'Indabyo n’Amavaze',
+  other:'Reba ibindi bicuruzwa →',
+  delivery:'Serivisi yo kugeza ibicuruzwa',
+  deliveryText:'Tukugezaho indabyo n’amavaze aho uri.',
+  pickup:'Kwifatira ibyo watumije',
+  pickupText:'Ushobora no kuza kwifatira ibyo watumije.',
+  location:'Aho duherereye',
+  locationText:'Dushakishe kuri Google Maps.',
+  viewLocation:'Reba aho duherereye →'
  },
 
  fr:{
-  welcome:"Bienvenue chez JOY FLOWERS",
-  choose:"Veuillez choisir votre langue",
-  home:"ACCUEIL",
-  flowers:"FLEURS",
-  vases:"VASES",
-  both:"FLEURS ET VASES",
-  garden:"AMÉNAGEMENT DE JARDINS",
-  rental:"LOCATION",
-  hero:"Des fleurs fraîches, de beaux moments.",
-  description:"Découvrez nos fleurs, nos vases et nos services de jardinage.",
-  explore:"Découvrir les fleurs",
-  products:"Nos produits"
- },
-
- en:{
-  welcome:"Welcome to JOY FLOWERS",
-  choose:"Please choose your preferred language",
-  home:"HOME",
-  flowers:"FLOWERS",
-  vases:"VASES",
-  both:"FLOWER AND VASES",
-  garden:"GARDEN MAKING",
-  rental:"RENTAL",
-  hero:"Fresh Flowers, Beautiful Moments.",
-  description:"Discover beautiful flowers, elegant vases and amazing garden designs.",
-  explore:"Explore Flowers",
-  products:"Our Products"
+  home:'ACCUEIL',
+  flowers:'FLEURS⌄',
+  vases:'VASES⌄',
+  both:'FLEURS ET VASES⌄',
+  garden:'JARDINAGE',
+  rental:'LOCATION',
+  script:'Magnifiques',
+  word:'Fleurs',
+  sub:'Fleurs fraîches, beaux moments.',
+  desc:'Découvrez nos fleurs fraîches, nos vases élégants et nos jardins.',
+  explore:'Voir les fleurs →',
+  collection:'Collection de fleurs et de vases',
+  other:'Voir autres produits →',
+  delivery:'Service de livraison',
+  deliveryText:'Nous livrons les fleurs et les vases chez vous.',
+  pickup:'Retrait',
+  pickupText:'Vous pouvez aussi récupérer votre commande.',
+  location:'Notre adresse',
+  locationText:'Trouvez-nous facilement sur Google Maps.',
+  viewLocation:'Voir la carte →'
  },
 
  sw:{
-  welcome:"Karibu JOY FLOWERS",
-  choose:"Tafadhali chagua lugha yako",
-  home:"NYUMBANI",
-  flowers:"MAUA",
-  vases:"VASE",
-  both:"MAUA NA VASE",
-  garden:"UTENGENEZAJI WA BUSTANI",
-  rental:"KUKODISHA",
-  hero:"Maua mazuri, nyakati nzuri.",
-  description:"Tunauza maua, vase na tunatengeneza bustani nzuri.",
-  explore:"Tazama maua",
-  products:"Bidhaa zetu"
+  home:'NYUMBANI',
+  flowers:'MAUA⌄',
+  vases:'VASE⌄',
+  both:'MAUA NA VASE⌄',
+  garden:'UTENGENEZAJI WA BUSTANI',
+  rental:'KUKODISHA',
+  script:'Maua mazuri',
+  word:'Maua',
+  sub:'Maua safi, nyakati nzuri.',
+  desc:'Gundua maua yetu mazuri, vase na huduma za bustani.',
+  explore:'Tazama maua →',
+  collection:'Mkusanyiko wa maua na vase',
+  other:'Angalia bidhaa nyingine →',
+  delivery:'Huduma ya usafirishaji',
+  deliveryText:'Tunakuletea maua na vase ulipo.',
+  pickup:'Kuchukua mwenyewe',
+  pickupText:'Unaweza pia kuja kuchukua oda yako.',
+  location:'Mahali petu',
+  locationText:'Tupate kwa urahisi kwenye Google Maps.',
+  viewLocation:'Tazama mahali →'
  },
 
  zh:{
-  welcome:"欢迎来到 JOY FLOWERS",
-  choose:"请选择您的语言",
-  home:"首页",
-  flowers:"鲜花",
-  vases:"花瓶",
-  both:"鲜花和花瓶",
-  garden:"花园设计",
-  rental:"租赁",
-  hero:"鲜花带来美好时刻。",
-  description:"探索美丽的鲜花、花瓶和花园设计服务。",
-  explore:"浏览鲜花",
-  products:"我们的产品"
+  home:'首页',
+  flowers:'鲜花⌄',
+  vases:'花瓶⌄',
+  both:'鲜花和花瓶⌄',
+  garden:'花园设计',
+  rental:'租赁',
+  script:'美丽的',
+  word:'鲜花',
+  sub:'鲜花带来美好时刻。',
+  desc:'探索鲜花、精美花瓶和花园设计服务。',
+  explore:'浏览鲜花 →',
+  collection:'鲜花与花瓶系列',
+  other:'探索更多产品 →',
+  delivery:'配送服务',
+  deliveryText:'我们将鲜花和花瓶送到您家门口。',
+  pickup:'到店自取',
+  pickupText:'您也可以到店领取订单。',
+  location:'我们的位置',
+  locationText:'在 Google 地图上查找我们。',
+  viewLocation:'查看位置 →'
  }
 
 };
 
-function chooseLanguage(language){
+/* CHOOSE LANGUAGE */
 
- const t=translations[language];
+function chooseLanguage(lang){
 
- document.getElementById("welcome").textContent=t.welcome;
- document.getElementById("chooseText").textContent=t.choose;
+ const t=TEXT[lang]||TEXT.en;
 
- document.getElementById("navHome").textContent=t.home;
- document.getElementById("navFlowers").textContent=t.flowers;
- document.getElementById("navVases").textContent=t.vases;
- document.getElementById("navBoth").textContent=t.both;
- document.getElementById("navGarden").textContent=t.garden;
- document.getElementById("navRental").textContent=t.rental;
+ const ids={
+  navHome:'home',
+  navFlowers:'flowers',
+  navVases:'vases',
+  navBoth:'both',
+  navGarden:'garden',
+  navRental:'rental',
+  heroScript:'script',
+  heroWord:'word',
+  heroSub:'sub',
+  heroDescription:'desc',
+  heroButton:'explore',
+  collectionTitle:'collection',
+  exploreOther:'other',
+  deliveryTitle:'delivery',
+  deliveryText:'deliveryText',
+  pickupTitle:'pickup',
+  pickupText:'pickupText',
+  locationTitle:'location',
+  locationText:'locationText',
+  locationButton:'viewLocation'
+ };
 
- document.getElementById("heroTitle").textContent=t.hero;
- document.getElementById("heroText").textContent=t.description;
- document.getElementById("exploreBtn").textContent=t.explore+" →";
- document.getElementById("productsTitle").textContent=t.products;
+ for(const [id,key] of Object.entries(ids)){
+  const el=document.getElementById(id);
+  if(el)el.textContent=t[key];
+ }
 
- document.getElementById("languageScreen").style.display="none";
- document.getElementById("mainWebsite").style.display="block";
+ document.getElementById('languageScreen').style.display='none';
+ document.getElementById('website').style.display='block';
 
- document.documentElement.lang=language;
+ document.querySelector('.selection-bar').style.display='flex';
 
- localStorage.setItem("joyFlowersLanguage",language);
+ document.documentElement.lang=lang;
+
+ localStorage.setItem('joyFlowersLanguage',lang);
 }
-
 
 /* SHOPPING SELECTION */
 
-const SELECTION_KEY="joyFlowersSelection";
-const ORDERS_KEY="joyFlowersOrders";
+const CART_KEY='joyFlowersSelection';
+const ORDERS_KEY='joyFlowersOrders';
 
-function readSelection(){
-
+function getItems(){
  try{
-  const data=JSON.parse(localStorage.getItem(SELECTION_KEY)||"[]");
-  return Array.isArray(data)?data:[];
+  return JSON.parse(localStorage.getItem(CART_KEY)||'[]');
  }catch(e){
   return [];
  }
-
 }
 
-function saveSelection(items){
- localStorage.setItem(SELECTION_KEY,JSON.stringify(items));
- renderSelection();
+function saveItems(items){
+ localStorage.setItem(CART_KEY,JSON.stringify(items));
+ renderCart();
 }
 
 /*
- OTHER HTML PAGES WILL USE THIS FUNCTION.
+ OTHER HTML PAGES CAN USE THIS FUNCTION.
 
  EXAMPLE:
  addToSelection({
-   name:"Pinus",
-   price:2000,
-   quantity:5
+  name:"Pinus",
+  price:2000,
+  quantity:5
  });
 */
 
 function addToSelection(product){
 
- if(!product || !product.name ||
-    !Number.isFinite(Number(product.price)) ||
-    Number(product.price)<0){
-  alert("Product information is invalid.");
-  return;
+ if(!product||!product.name||
+ !Number.isFinite(Number(product.price))){
+  return alert('Product details are missing.');
  }
 
- const quantity=Math.max(1,Math.floor(Number(product.quantity)||1));
+ const q=Math.max(1,parseInt(product.quantity,10)||1);
+ const items=getItems();
  const price=Number(product.price);
 
- const items=readSelection();
-
- const existing=items.find(item=>
-  item.name.toLowerCase()===String(product.name).toLowerCase()
-  && Number(item.price)===price
+ const found=items.find(x=>
+  x.name.toLowerCase()===String(product.name).toLowerCase()
+  &&Number(x.price)===price
  );
 
- if(existing){
-  existing.quantity+=quantity;
+ if(found){
+  found.quantity+=q;
  }else{
   items.push({
    name:String(product.name),
-   price:price,
-   quantity:quantity
+   price,
+   quantity:q
   });
  }
 
- saveSelection(items);
+ saveItems(items);
 }
 
-function getQuantity(items){
- return items.reduce((sum,item)=>
-  sum+Number(item.quantity),0
- );
-}
+/* ADD FROM HOMEPAGE CARD */
 
-function money(value){
- return Math.round(value).toLocaleString("en-US")+" FRW";
-}
+function addProductFromCard(button){
 
-/* EACH PRODUCT IS CALCULATED SEPARATELY */
+ const card=button.closest('.product-card');
 
-function calculateSelection(items){
+ if(card.classList.contains('sold'))return;
 
- let subtotal=0;
-
- items.forEach(item=>{
-
-  const itemTotal=Number(item.price)*Number(item.quantity);
-
-  subtotal+=itemTotal;
-
+ addToSelection({
+  name:card.dataset.name,
+  price:Number(card.dataset.price),
+  quantity:1
  });
 
- const quantity=getQuantity(items);
+ openSelection(false);
+}
 
- const discount=quantity>10?subtotal*0.10:0;
+/* CALCULATE TOTALS */
 
- const total=subtotal-discount;
+function totals(items){
+
+ const count=items.reduce(
+  (s,x)=>s+Number(x.quantity),0
+ );
+
+ const subtotal=items.reduce(
+  (s,x)=>s+Number(x.price)*Number(x.quantity),0
+ );
+
+ const discount=count>10?subtotal*.1:0;
 
  return{
-  quantity,
+  count,
   subtotal,
   discount,
-  total
+  total:subtotal-discount
  };
-
 }
 
-function escapeText(value){
-
- return String(value).replace(/[&<>"']/g,char=>({
-  "&":"&amp;",
-  "<":"&lt;",
-  ">":"&gt;",
-  '"':"&quot;",
-  "'":"&#39;"
- }[char]));
-
+function fmt(n){
+ return Math.round(n).toLocaleString('en-US')+' FRW';
 }
 
-/* DISPLAY SELECTION */
+function safe(s){
+ return String(s).replace(/[&<>"']/g,c=>({
+  '&':'&amp;',
+  '<':'&lt;',
+  '>':'&gt;',
+  '"':'&quot;',
+  "'":'&#39;'
+ }[c]));
+}
 
-function renderSelection(){
+/* DISPLAY MY SELECTION */
 
- const items=readSelection();
- const totals=calculateSelection(items);
+function renderCart(){
 
- document.getElementById("selectionCount").textContent=totals.quantity;
+ const items=getItems();
+ const t=totals(items);
 
- document.getElementById("selectionBarItems").textContent=
-  totals.quantity+" items";
+ document.getElementById('selectionCount').textContent=t.count;
 
- document.getElementById("selectionBarTotal").textContent=
-  money(totals.total);
+ document.getElementById('selectionItemsCount').textContent=
+  t.count+' items';
 
- const list=document.getElementById("selectionItems");
+ document.getElementById('selectionBarTotal').textContent=
+  fmt(t.total);
 
- if(items.length===0){
+ document.getElementById('cartBubble').textContent=t.count;
 
-  list.className="selection-empty";
-  list.textContent="You have not selected any flowers or vases yet.";
+ const list=document.getElementById('selectionList');
+
+ if(!items.length){
+
+  list.className='empty';
+  list.textContent='You have not selected any products yet.';
 
  }else{
 
-  list.className="";
+  list.className='';
 
-  list.innerHTML=items.map((item,index)=>{
+  list.innerHTML=items.map((x,i)=>{
 
-   const itemTotal=Number(item.price)*Number(item.quantity);
+   const line=Number(x.price)*Number(x.quantity);
 
    return`
 
@@ -1059,212 +1446,178 @@ function renderSelection(){
 
      <div>
 
-      <h4>${escapeText(item.name)}</h4>
+      <h4>${safe(x.name)}</h4>
 
       <p>
-       ${money(item.price)} × ${item.quantity}
-       = <strong>${money(itemTotal)}</strong>
+       ${fmt(x.price)} × ${x.quantity}
+       = <b>${fmt(line)}</b>
       </p>
 
       <div class="item-controls">
 
-       <button class="quantity-btn"
-       onclick="changeQuantity(${index},-1)">−</button>
+       <button onclick="changeQty(${i},-1)">−</button>
 
-       <strong>${item.quantity}</strong>
+       <b>${x.quantity}</b>
 
-       <button class="quantity-btn"
-       onclick="changeQuantity(${index},1)">+</button>
+       <button onclick="changeQty(${i},1)">+</button>
 
-       <button class="remove-btn"
-       onclick="removeItem(${index})">Remove</button>
+       <button class="remove"
+       onclick="removeItem(${i})">Remove</button>
 
       </div>
 
      </div>
 
-     <div class="selection-item-total">
-      ${money(itemTotal)}
+     <div class="item-total">
+      ${fmt(line)}
      </div>
 
     </div>
 
    `;
 
-  }).join("");
+  }).join('');
 
  }
 
- document.getElementById("selectionSubtotal").textContent=
-  money(totals.subtotal);
+ document.getElementById('subtotal').textContent=
+  fmt(t.subtotal);
 
- document.getElementById("selectionDiscount").textContent=
-  "- "+money(totals.discount);
+ document.getElementById('discount').textContent=
+  '− '+fmt(t.discount);
 
- document.getElementById("selectionGrandTotal").textContent=
-  money(totals.total);
+ document.getElementById('grandTotal').textContent=
+  fmt(t.total);
 
- const note=document.getElementById("discountNote");
-
- if(totals.quantity>10){
-
-  note.textContent="10% discount applied!";
-
- }else{
-
-  note.textContent=
-   "Select "+(11-totals.quantity)+
-   " more item(s) to receive a 10% discount.";
-
- }
+ document.getElementById('discountNote').textContent=
+  t.count>10
+  ?'10% discount applied.'
+  :'Select '+(11-t.count)+' more item(s) to receive a 10% discount.';
 
 }
 
 /* CHANGE QUANTITY */
 
-function changeQuantity(index,change){
+function changeQty(i,d){
 
- const items=readSelection();
+ const items=getItems();
 
- if(!items[index])return;
+ if(!items[i])return;
 
- items[index].quantity=Math.max(
+ items[i].quantity=Math.max(
   1,
-  Number(items[index].quantity)+change
+  Number(items[i].quantity)+d
  );
 
- saveSelection(items);
-
+ saveItems(items);
 }
 
-/* REMOVE PRODUCT */
+/* REMOVE ITEM */
 
-function removeItem(index){
+function removeItem(i){
 
- const items=readSelection();
+ const items=getItems();
 
- items.splice(index,1);
+ items.splice(i,1);
 
- saveSelection(items);
-
+ saveItems(items);
 }
 
-/* OPEN AND CLOSE PANEL */
+/* OPEN PANEL */
 
-function openSelection(showOrder){
+function openSelection(order){
 
- document.getElementById("selectionOverlay").classList.add("show");
+ document.getElementById('selectionOverlay')
+ .classList.add('show');
 
- document.getElementById("orderMessage").classList.remove("show");
+ document.getElementById('successMessage')
+ .classList.remove('show');
 
- if(showOrder && readSelection().length){
+ document.getElementById('orderForm')
+ .classList.toggle(
+  'show',
+  !!order&&getItems().length>0
+ );
 
-  document.getElementById("orderForm").classList.add("show");
-
- }else{
-
-  document.getElementById("orderForm").classList.remove("show");
-
- }
-
- renderSelection();
-
+ renderCart();
 }
+
+/* CLOSE PANEL */
 
 function closeSelection(){
 
- document.getElementById("selectionOverlay").classList.remove("show");
-
+ document.getElementById('selectionOverlay')
+ .classList.remove('show');
 }
 
-function overlayClose(event){
+/* SEND ORDER */
 
- if(event.target.id==="selectionOverlay"){
-  closeSelection();
+document.getElementById('orderForm')
+.addEventListener('submit',e=>{
+
+ e.preventDefault();
+
+ const items=getItems();
+
+ if(!items.length){
+  return alert('Please select products first.');
  }
 
-}
-
-/* SUBMIT ORDER */
-
-document.getElementById("orderForm").addEventListener("submit",function(event){
-
- event.preventDefault();
-
- const items=readSelection();
-
- if(items.length===0){
-  alert("Please select products first.");
-  return;
- }
-
- const phone=document.getElementById("customerPhone").value.trim();
-
- const location=document.getElementById("customerLocation").value.trim();
-
- if(!phone||!location)return;
-
- const totals=calculateSelection(items);
+ const t=totals(items);
 
  const order={
 
-  id:"JF-"+Date.now(),
+  id:'JF-'+Date.now(),
 
   createdAt:new Date().toISOString(),
 
-  phone:phone,
+  phone:document.getElementById('phone').value.trim(),
 
-  location:location,
+  location:document.getElementById('address').value.trim(),
 
-  items:items,
+  items,
 
-  subtotal:totals.subtotal,
+  subtotal:t.subtotal,
 
-  discount:totals.discount,
+  discount:t.discount,
 
-  total:totals.total,
+  total:t.total,
 
-  status:"New"
+  status:'New'
 
  };
 
  const orders=JSON.parse(
-  localStorage.getItem(ORDERS_KEY)||"[]"
+  localStorage.getItem(ORDERS_KEY)||'[]'
  );
 
  orders.unshift(order);
 
- localStorage.setItem(ORDERS_KEY,JSON.stringify(orders));
-
- window.dispatchEvent(
-  new CustomEvent("joyFlowersOrderCreated",{detail:order})
+ localStorage.setItem(
+  ORDERS_KEY,
+  JSON.stringify(orders)
  );
 
- localStorage.removeItem(SELECTION_KEY);
+ localStorage.removeItem(CART_KEY);
 
- renderSelection();
+ renderCart();
 
- document.getElementById("orderForm").classList.remove("show");
+ e.target.reset();
 
- document.getElementById("orderMessage").classList.add("show");
+ e.target.classList.remove('show');
 
- document.getElementById("orderForm").reset();
-
-});
-
-/* UPDATE IF SELECTION CHANGES */
-
-window.addEventListener("storage",function(event){
-
- if(event.key===SELECTION_KEY){
-  renderSelection();
- }
+ document.getElementById('successMessage')
+ .classList.add('show');
 
 });
 
-/* INITIALIZE */
+/* UPDATE CART */
 
-renderSelection();
+window.addEventListener('storage',e=>{
+ if(e.key===CART_KEY)renderCart();
+});
+
+renderCart();
 
 </script>
 
