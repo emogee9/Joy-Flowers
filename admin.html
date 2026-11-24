@@ -1,0 +1,438 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flower Vases | Admin Dashboard</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f7f7f5;
+  color:#252525;
+}
+
+:root{
+  --yellow:#f5c928;
+  --dark:#292929;
+  --white:#fff;
+  --gray:#777;
+}
+
+.sidebar{
+  width:250px;
+  height:100vh;
+  background:#fff;
+  position:fixed;
+  top:0;left:0;
+  padding:25px 18px;
+  border-right:1px solid #eee;
+  z-index:10;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:40px;
+}
+
+.logo-icon{
+  background:var(--yellow);
+  padding:12px;
+  border-radius:12px;
+  font-size:22px;
+}
+
+.logo h2{font-size:18px}
+.logo small{color:var(--gray);font-size:11px}
+
+.menu-title{
+  color:#aaa;
+  font-size:11px;
+  margin:20px 10px 12px;
+  font-weight:bold;
+}
+
+.menu a{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  margin:5px 0;
+  text-decoration:none;
+  color:#555;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.menu a:hover,.menu a.active{
+  background:#fff5ce;
+  color:#9b7400;
+}
+
+.logout{
+  position:absolute;
+  bottom:25px;
+  left:18px;
+  right:18px;
+}
+
+.main{
+  margin-left:250px;
+  padding:30px;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.topbar h1{font-size:25px}
+.topbar p{color:var(--gray);margin-top:6px}
+
+.admin{
+  background:white;
+  padding:12px 17px;
+  border-radius:10px;
+  font-size:13px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:13px;
+  border:1px solid #eee;
+}
+
+.card .symbol{
+  background:#fff5ce;
+  width:42px;height:42px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  font-size:21px;
+}
+
+.card h2{
+  margin:18px 0 5px;
+  font-size:27px;
+}
+
+.card p{color:var(--gray);font-size:13px}
+
+.content{
+  background:white;
+  padding:23px;
+  border-radius:13px;
+  border:1px solid #eee;
+  margin-bottom:22px;
+}
+
+.content h3{margin-bottom:20px}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.menu-card{
+  padding:20px;
+  border:1px solid #eee;
+  border-radius:12px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.menu-card:hover{
+  border-color:var(--yellow);
+  background:#fffdf4;
+}
+
+.menu-card .symbol{font-size:25px}
+.menu-card h3{font-size:15px;margin:13px 0 7px}
+.menu-card p{font-size:12px;color:var(--gray)}
+
+.products{
+  display:flex;
+  gap:15px;
+  align-items:center;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+
+.products img{
+  width:65px;height:65px;
+  border-radius:9px;
+  object-fit:cover;
+}
+
+.products p{color:var(--gray);font-size:12px;margin-top:5px}
+
+.status{
+  margin-left:auto;
+  background:#e9f8e9;
+  color:green;
+  padding:6px 10px;
+  border-radius:20px;
+  font-size:11px;
+}
+
+.section{display:none}
+.section.active{display:block}
+
+button{
+  border:none;
+  background:var(--yellow);
+  padding:11px 18px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+@media(max-width:900px){
+  .sidebar{width:210px}
+  .main{margin-left:210px;padding:20px}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .menu-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:600px){
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+    padding:15px;
+  }
+  .logo{margin-bottom:12px}
+  .menu-title,.logout{display:none}
+  .menu{
+    display:flex;
+    overflow-x:auto;
+    gap:5px;
+  }
+  .menu a{white-space:nowrap;padding:10px}
+  .main{margin:0;padding:17px}
+  .cards{gap:10px}
+  .card{padding:15px}
+  .card h2{font-size:22px}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .topbar h1{font-size:20px}
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+  <div class="logo">
+    <div class="logo-icon">🌸</div>
+    <div>
+      <h2>FLOWER VASES</h2>
+      <small>ADMIN PANEL</small>
+    </div>
+  </div>
+
+  <div class="menu-title">MAIN MENU</div>
+
+  <nav class="menu">
+    <a class="active" onclick="showPage('dashboard',this)">▦ Dashboard</a>
+    <a onclick="showPage('products',this)">📦 Products</a>
+    <a onclick="showPage('orders',this)">🛍 Orders</a>
+    <a onclick="showPage('customers',this)">👥 Customers</a>
+    <a onclick="showPage('categories',this)">▤ Categories</a>
+    <a onclick="showPage('messages',this)">✉ Messages</a>
+    <a onclick="showPage('settings',this)">⚙ Settings</a>
+  </nav>
+
+  <div class="logout">
+    <a onclick="alert('Login system will be added later')">↪ Logout</a>
+  </div>
+</aside>
+
+<main class="main">
+
+  <div class="topbar">
+    <div>
+      <h1 id="pageTitle">Dashboard</h1>
+      <p>Welcome back to Flower Vases Admin.</p>
+    </div>
+    <div class="admin">👤 Administrator</div>
+  </div>
+
+  <section id="dashboard" class="section active">
+
+    <div class="cards">
+      <div class="card">
+        <div class="symbol">📦</div>
+        <h2>128</h2>
+        <p>Total Products</p>
+      </div>
+
+      <div class="card">
+        <div class="symbol">🛍</div>
+        <h2>46</h2>
+        <p>Total Orders</p>
+      </div>
+
+      <div class="card">
+        <div class="symbol">👥</div>
+        <h2>85</h2>
+        <p>Customers</p>
+      </div>
+
+      <div class="card">
+        <div class="symbol">💰</div>
+        <h2>$850</h2>
+        <p>Revenue (Demo)</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <h3>Management Menu</h3>
+
+      <div class="menu-grid">
+        <div class="menu-card" onclick="showPage('products')">
+          <div class="symbol">📦</div>
+          <h3>Products</h3>
+          <p>Add, edit and delete vases</p>
+        </div>
+
+        <div class="menu-card" onclick="showPage('orders')">
+          <div class="symbol">🛍</div>
+          <h3>Orders</h3>
+          <p>Manage customer orders</p>
+        </div>
+
+        <div class="menu-card" onclick="showPage('customers')">
+          <div class="symbol">👥</div>
+          <h3>Customers</h3>
+          <p>View customers</p>
+        </div>
+
+        <div class="menu-card" onclick="showPage('categories')">
+          <div class="symbol">▤</div>
+          <h3>Categories</h3>
+          <p>Manage categories</p>
+        </div>
+
+        <div class="menu-card" onclick="showPage('messages')">
+          <div class="symbol">✉</div>
+          <h3>Messages</h3>
+          <p>Customer messages</p>
+        </div>
+
+        <div class="menu-card" onclick="showPage('settings')">
+          <div class="symbol">⚙</div>
+          <h3>Settings</h3>
+          <p>Website settings</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h3>Recent Products</h3>
+
+      <div class="products">
+        <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?w=200">
+        <div>
+          <b>White Ceramic Vase</b>
+          <p>Product #001 · $25</p>
+        </div>
+        <span class="status">Active</span>
+      </div>
+
+      <div class="products">
+        <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=200">
+        <div>
+          <b>Decorative Vase</b>
+          <p>Product #002 · $35</p>
+        </div>
+        <span class="status">Active</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="products" class="section">
+    <div class="content">
+      <h3>Products Management</h3>
+      <button onclick="alert('Product form will be connected later')">+ Add Product</button>
+      <p style="margin-top:20px;color:#777">Your products will appear here.</p>
+    </div>
+  </section>
+
+  <section id="orders" class="section">
+    <div class="content">
+      <h3>Orders Management</h3>
+      <p>No connected orders yet.</p>
+    </div>
+  </section>
+
+  <section id="customers" class="section">
+    <div class="content">
+      <h3>Customers</h3>
+      <p>Customer information will appear here.</p>
+    </div>
+  </section>
+
+  <section id="categories" class="section">
+    <div class="content">
+      <h3>Categories</h3>
+      <button onclick="alert('Category form will be added later')">+ Add Category</button>
+    </div>
+  </section>
+
+  <section id="messages" class="section">
+    <div class="content">
+      <h3>Customer Messages</h3>
+      <p>Messages will appear here.</p>
+    </div>
+  </section>
+
+  <section id="settings" class="section">
+    <div class="content">
+      <h3>Website Settings</h3>
+      <p>Settings will be added later.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function showPage(page,link){
+  document.querySelectorAll('.section').forEach(section=>{
+    section.classList.remove('active');
+  });
+
+  document.getElementById(page).classList.add('active');
+
+  document.querySelectorAll('.menu a').forEach(item=>{
+    item.classList.remove('active');
+  });
+
+  if(link) link.classList.add('active');
+
+  document.getElementById('pageTitle').textContent =
+    page.charAt(0).toUpperCase()+page.slice(1);
+
+  window.scrollTo(0,0);
+}
+</script>
+
+</body>
+</html>
