@@ -4,863 +4,815 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Vases | JOY FLOWERS</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 :root{
-    --pink:#ed1685;
-    --green:#174c28;
-    --yellow:#ffcf18;
-    --light-pink:#fff0f7;
+ --pink:#ed1685;
+ --green:#174c28;
+ --yellow:#ffcf18;
+ --light-pink:#fff0f7;
 }
 
 body{
-    font-family:Arial,sans-serif;
-    background:#fff;
-    color:#292929;
+ font-family:Arial,sans-serif;
+ background:#fff;
+ color:#292929;
+ font-size:13px;
+ padding-bottom:75px;
 }
-
-/* TOP BAR */
 
 .topbar{
-    background:var(--pink);
-    color:white;
-    padding:10px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:10px;
-    font-size:13px;
+ background:var(--pink);
+ color:white;
+ padding:7px 4%;
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:8px;
+ font-size:11px;
 }
 
-.topbar a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-}
-
-/* HEADER */
+.topbar a{color:white;text-decoration:none;font-weight:bold}
 
 header{
-    background:white;
-    padding:17px 5%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
-    box-shadow:0 3px 15px #00000010;
+ background:white;
+ padding:12px 3%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+ box-shadow:0 2px 12px #00000010;
 }
 
 .logo{
-    font-size:30px;
-    font-weight:900;
-    color:var(--green);
+ font-size:25px;
+ font-weight:900;
+ color:var(--green);
 }
 
-.logo span{
-    color:var(--pink);
-}
+.logo span{color:var(--pink)}
 
 .logo small{
-    display:block;
-    font-size:11px;
-    color:var(--pink);
-    font-style:italic;
-    font-weight:normal;
-    letter-spacing:1px;
+ display:block;
+ font-size:10px;
+ color:var(--pink);
+ font-style:italic;
+ font-weight:normal;
 }
 
-nav{
-    display:flex;
-    gap:17px;
-    align-items:center;
-    flex-wrap:wrap;
-}
+nav{display:flex;gap:13px;align-items:center;flex-wrap:wrap}
 
 nav a{
-    color:#333;
-    font-size:12px;
-    font-weight:bold;
-    text-decoration:none;
+ color:#333;
+ font-size:10px;
+ font-weight:bold;
+ text-decoration:none;
 }
 
-nav a:hover,
-nav a.active{
-    color:var(--pink);
-}
-
-/* HERO */
+nav a:hover,nav a.active{color:var(--pink)}
 
 .hero{
-    min-height:350px;
-    padding:65px 7%;
-    display:flex;
-    align-items:center;
-    background:
-    radial-gradient(circle at 85% 20%,#f9c5df 0,transparent 30%),
-    linear-gradient(115deg,#fff0f7,#fff,#eaf3e9);
+ min-height:280px;
+ padding:45px 6%;
+ display:flex;
+ align-items:center;
+ background:linear-gradient(110deg,#fff0f7,#fff,#eaf3e9);
 }
 
-.hero-content{
-    max-width:650px;
-}
+.hero-content{max-width:550px}
 
 .hero h1{
-    color:var(--green);
-    font-size:clamp(40px,6vw,68px);
-    margin-bottom:15px;
-    line-height:1.1;
+ color:var(--green);
+ font: bold 55px Georgia;
+ margin-bottom:10px;
 }
 
-.hero h1 span{
-    color:var(--pink);
-}
+.hero h1 span{color:var(--pink)}
 
 .hero h2{
-    color:var(--green);
-    font-size:23px;
-    font-style:italic;
-    margin-bottom:17px;
+ color:var(--green);
+ font:italic bold 19px Georgia;
+ margin-bottom:12px;
 }
 
 .hero p{
-    font-size:17px;
-    line-height:1.7;
-    max-width:520px;
-    color:#444;
+ font-size:13px;
+ line-height:1.7;
+ max-width:440px;
 }
 
 .hero-button{
-    display:inline-block;
-    margin-top:23px;
-    background:var(--pink);
-    color:white;
-    padding:14px 28px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
+ display:inline-block;
+ margin-top:17px;
+ background:var(--pink);
+ color:white;
+ padding:11px 22px;
+ border-radius:25px;
+ text-decoration:none;
+ font-weight:bold;
+ font-size:12px;
 }
 
-/* SEARCH */
-
 .search-section{
-    padding:30px 5%;
-    text-align:center;
+ padding:20px 4%;
+ text-align:center;
 }
 
 .search-section input{
-    width:100%;
-    max-width:500px;
-    padding:15px 22px;
-    border:1px solid #e6d3dd;
-    border-radius:35px;
-    font-size:15px;
-    outline:none;
+ width:100%;
+ max-width:420px;
+ padding:11px 18px;
+ border:1px solid #e6d3dd;
+ border-radius:25px;
+ font-size:12px;
+ outline:none;
 }
 
-.search-section input:focus{
-    border-color:var(--pink);
-}
-
-/* PRODUCTS */
-
-.products{
-    padding:20px 5% 60px;
-}
+.products{padding:10px 2% 35px}
 
 .section-heading{
-    text-align:center;
-    color:var(--green);
-    font-size:32px;
-    margin-bottom:12px;
+ text-align:center;
+ color:var(--green);
+ font: bold 26px Georgia;
+ margin-bottom:8px;
 }
 
 .section-description{
-    text-align:center;
-    color:#777;
-    margin-bottom:35px;
-    font-size:14px;
+ text-align:center;
+ color:#777;
+ margin-bottom:23px;
+ font-size:12px;
 }
 
-/* EMPTY PRODUCT AREA */
-
 .vase-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:23px;
+ display:grid;
+ grid-template-columns:repeat(6,minmax(0,1fr));
+ gap:11px;
 }
 
 .vase-card{
-    border:1px solid #f0dce7;
-    border-radius:15px;
-    overflow:hidden;
-    background:white;
-    box-shadow:0 5px 18px #0000000d;
+ border:1px solid #f0dce7;
+ border-radius:9px;
+ overflow:hidden;
+ background:white;
+ box-shadow:0 3px 10px #00000010;
+ position:relative;
 }
 
 .vase-image{
-    height:210px;
-    background:#fff7fb;
-    border-bottom:1px solid #f3e2eb;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#d6a7bd;
-    font-size:13px;
+ width:100%;
+ height:145px;
+ object-fit:cover;
+ display:block;
+ background:#fff0f7;
 }
 
 .vase-info{
-    padding:18px;
-    text-align:center;
+ padding:10px 7px;
+ text-align:center;
 }
 
 .vase-info h3{
-    color:var(--green);
-    margin-bottom:10px;
-    font-size:19px;
+ color:#222;
+ margin-bottom:6px;
+ font-size:13px;
 }
 
 .price{
-    color:var(--pink);
-    font-weight:bold;
-    margin-bottom:17px;
+ color:var(--pink);
+ font-weight:bold;
+ margin-bottom:9px;
+ font-size:12px;
+}
+
+.sold-badge{
+ position:absolute;
+ top:8px;
+ left:7px;
+ background:#d71945;
+ color:white;
+ padding:5px 8px;
+ border-radius:3px;
+ font-size:9px;
+ font-weight:bold;
 }
 
 .product-actions{
-    display:flex;
-    gap:9px;
+ display:flex;
+ justify-content:center;
+ gap:5px;
+ align-items:center;
 }
 
-.product-actions button{
-    flex:1;
-    border:none;
-    padding:11px 8px;
-    border-radius:25px;
-    font-weight:bold;
-    cursor:pointer;
+.select-label{
+ display:flex;
+ align-items:center;
+ gap:4px;
+ font-size:10px;
+ font-weight:bold;
+ cursor:pointer;
+}
+
+.select-label input{
+ accent-color:var(--pink);
+ width:15px;
+ height:15px;
+ cursor:pointer;
+}
+
+.quantity{
+ width:45px;
+ padding:6px 3px;
+ border:1px solid #ddd;
+ border-radius:4px;
+ font-size:11px;
+ text-align:center;
 }
 
 .view-btn{
-    background:var(--pink);
-    color:white;
+ background:var(--pink);
+ color:white;
+ border:0;
+ padding:7px 10px;
+ border-radius:20px;
+ font-size:10px;
+ cursor:pointer;
 }
 
-.order-btn{
-    background:var(--yellow);
-    color:#333;
-}
-
-/* EMPTY MESSAGE */
+.sold-card{opacity:.75}
+.sold-card .product-actions{pointer-events:none;opacity:.4}
 
 .empty-message{
-    text-align:center;
-    padding:35px 20px;
-    background:var(--light-pink);
-    border-radius:15px;
-    margin-top:20px;
-    color:var(--green);
+ text-align:center;
+ padding:35px 15px;
+ background:var(--light-pink);
+ border-radius:10px;
+ color:var(--green);
 }
 
 .empty-message p{
-    margin-top:10px;
-    color:#777;
-    line-height:1.6;
+ margin-top:8px;
+ color:#777;
+ line-height:1.6;
+ font-size:12px;
 }
 
-/* SERVICES */
+.explore{text-align:center;margin-top:22px}
+
+.explore a{
+ display:inline-block;
+ padding:10px 20px;
+ border:1px solid var(--pink);
+ color:var(--pink);
+ border-radius:25px;
+ text-decoration:none;
+ font-size:11px;
+ font-weight:bold;
+}
 
 .service-section{
-    padding:15px 5% 35px;
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:20px;
+ padding:10px 2% 25px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
 }
 
 .service-card{
-    min-height:190px;
-    padding:28px;
-    border-radius:17px;
-    background:linear-gradient(120deg,#fff0f7,#ffe1ef);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+ min-height:150px;
+ padding:23px;
+ border-radius:12px;
+ background:linear-gradient(120deg,#fff0f7,#ffe1ef);
+ display:flex;
+ align-items:center;
+ gap:15px;
 }
 
 .service-card:nth-child(2){
-    background:linear-gradient(120deg,#eaf3e9,#fff);
+ background:linear-gradient(120deg,#eaf3e9,#fff);
 }
 
+.service-icon{font-size:35px}
+
 .service-card h2{
-    color:var(--green);
-    font-size:23px;
-    margin-bottom:13px;
+ color:var(--green);
+ font: bold 19px Georgia;
+ margin-bottom:9px;
 }
 
 .service-card p{
-    color:#555;
-    line-height:1.6;
+ color:#555;
+ font-size:12px;
+ line-height:1.6;
 }
 
-/* LOCATION */
-
-.location-section{
-    padding:15px 5% 35px;
-}
+.location-section{padding:10px 2% 25px}
 
 .location-container{
-    display:grid;
-    grid-template-columns:1fr 1.3fr;
-    border-radius:15px;
-    overflow:hidden;
-    background:var(--light-pink);
-    min-height:220px;
+ display:grid;
+ grid-template-columns:1fr 1.3fr;
+ border-radius:10px;
+ overflow:hidden;
+ background:var(--light-pink);
+ min-height:160px;
 }
 
 .location-info{
-    padding:30px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+ padding:25px;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
 }
 
 .location-info h2{
-    color:var(--green);
-    font-size:27px;
-    margin-bottom:12px;
+ color:var(--green);
+ font: bold 22px Georgia;
+ margin-bottom:9px;
 }
 
-.location-info p{
-    color:#555;
-    line-height:1.6;
-}
+.location-info p{font-size:12px;line-height:1.6}
 
 .map-placeholder{
-    min-height:220px;
-    background:linear-gradient(135deg,#e6eee1,#f8f3e7,#e7efe5);
-    border-left:1px solid #f2d9e5;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:var(--green);
-    padding:20px;
+ background:linear-gradient(135deg,#e6eee1,#f8f3e7,#e7efe5);
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ text-align:center;
+ padding:15px;
+ color:var(--green);
 }
 
-.map-placeholder span{
-    display:block;
-    font-size:36px;
-    margin-bottom:10px;
-}
-
-/* CONTACT */
+.map-placeholder span{display:block;font-size:28px}
 
 .contact-section{
-    padding:45px 20px;
-    text-align:center;
-    background:#fff0f7;
+ padding:30px 15px;
+ text-align:center;
+ background:#fff0f7;
 }
 
 .contact-section h2{
-    color:var(--green);
-    font-size:30px;
-    margin-bottom:13px;
+ color:var(--green);
+ font: bold 24px Georgia;
+ margin-bottom:10px;
 }
 
-.contact-section p{
-    color:#555;
-    margin-bottom:22px;
-}
+.contact-section p{font-size:12px;margin-bottom:15px}
 
 .contact-number{
-    display:block;
-    color:var(--green);
-    font-weight:bold;
-    font-size:20px;
-    text-decoration:none;
-    margin-bottom:20px;
+ display:block;
+ color:var(--green);
+ font-weight:bold;
+ margin-bottom:13px;
+ text-decoration:none;
 }
 
 .contact-buttons{
-    display:flex;
-    justify-content:center;
-    gap:13px;
-    flex-wrap:wrap;
+ display:flex;
+ justify-content:center;
+ gap:10px;
 }
 
 .contact-buttons a{
-    text-decoration:none;
-    padding:14px 25px;
-    border-radius:30px;
-    font-weight:bold;
+ text-decoration:none;
+ padding:10px 20px;
+ border-radius:25px;
+ font-size:11px;
+ font-weight:bold;
 }
 
-.whatsapp-btn{
-    background:#20bd62;
-    color:white;
-}
-
-.call-btn{
-    background:var(--pink);
-    color:white;
-}
-
-/* FOOTER */
+.whatsapp-btn{background:#20bd62;color:white}
+.call-btn{background:var(--pink);color:white}
 
 footer{
-    background:var(--green);
-    color:white;
-    padding:38px 5% 25px;
+ background:var(--green);
+ color:white;
+ padding:27px 4% 20px;
 }
 
 .footer-content{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:30px;
-    padding-bottom:30px;
+ display:grid;
+ grid-template-columns:1.5fr 1fr 1fr;
+ gap:20px;
+ padding-bottom:22px;
 }
 
-footer h2,
-footer h3{
-    margin-bottom:14px;
-}
-
-footer p{
-    line-height:1.7;
-    color:#f4f4f4;
-    font-size:14px;
-}
-
+footer h2,footer h3{margin-bottom:10px;font-size:15px}
+footer p{line-height:1.6;font-size:12px}
 footer a{
-    display:block;
-    color:white;
-    text-decoration:none;
-    margin:10px 0;
-    font-size:14px;
-}
-
-footer a:hover{
-    color:var(--yellow);
+ display:block;
+ color:white;
+ text-decoration:none;
+ margin:8px 0;
+ font-size:11px;
 }
 
 .footer-bottom{
-    background:var(--pink);
-    margin:0 -5.55%;
-    padding:17px 5.55%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-    font-size:13px;
-    font-weight:bold;
+ background:var(--pink);
+ margin:0 -4.3%;
+ padding:12px 4.3%;
+ display:flex;
+ justify-content:space-between;
+ flex-wrap:wrap;
+ gap:8px;
+ font-size:10px;
+ font-weight:bold;
 }
 
-/* MOBILE */
+/* MY SELECTION BAR */
 
-@media(max-width:800px){
-    .vase-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-    }
+.bottom-bar{
+ position:fixed;
+ bottom:0;
+ left:0;
+ right:0;
+ z-index:500;
+ background:#262626;
+ color:white;
+ padding:9px 15px;
+ display:none;
+ justify-content:space-between;
+ align-items:center;
+ box-shadow:0 -3px 12px #0003;
+}
 
-    .footer-content{
-        grid-template-columns:1fr 1fr;
-    }
+.bottom-left{display:flex;align-items:center;gap:9px}
+
+.count{
+ width:32px;
+ height:32px;
+ background:var(--pink);
+ border-radius:50%;
+ display:grid;
+ place-items:center;
+ font-weight:bold;
+ font-size:12px;
+}
+
+.bottom-left strong{font-size:11px}
+.bottom-left small{display:block;color:#ddd;margin-top:3px;font-size:10px}
+
+.bottom-bar button{
+ background:var(--yellow);
+ border:0;
+ padding:10px 17px;
+ border-radius:4px;
+ font-weight:bold;
+ font-size:10px;
+ cursor:pointer;
+}
+
+/* SELECTION PANEL */
+
+.overlay{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:900;
+ background:#0009;
+ align-items:flex-end;
+ justify-content:center;
+ padding:8px;
+}
+
+.overlay.show{display:flex}
+
+.panel{
+ background:white;
+ width:100%;
+ max-width:600px;
+ max-height:85vh;
+ overflow:auto;
+ border-radius:12px;
+ padding:16px;
+}
+
+.panel-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #eee;
+ padding-bottom:12px;
+}
+
+.panel-head h2{
+ color:var(--green);
+ font: bold 21px Georgia;
+}
+
+.close{
+ border:0;
+ background:#eee;
+ padding:6px 11px;
+ font-size:18px;
+ cursor:pointer;
+}
+
+.selection-item{
+ padding:11px 0;
+ border-bottom:1px solid #eee;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:10px;
+}
+
+.selection-item strong{font-size:12px}
+.selection-item small{
+ display:block;
+ color:#777;
+ font-size:10px;
+ margin-top:5px;
+}
+
+.remove-btn{
+ border:0;
+ color:#d71945;
+ background:none;
+ cursor:pointer;
+ font-size:11px;
+}
+
+.total-box{
+ background:#fff0f7;
+ padding:12px;
+ margin-top:12px;
+ border-radius:7px;
+}
+
+.total-row{
+ display:flex;
+ justify-content:space-between;
+ padding:5px 0;
+ font-size:12px;
+}
+
+.grand{
+ border-top:1px solid #e9c9db;
+ padding-top:10px;
+ margin-top:5px;
+ font-size:15px;
+ font-weight:bold;
+ color:var(--green);
+}
+
+.discount-note{
+ display:block;
+ margin-top:9px;
+ color:#777;
+ font-size:10px;
+}
+
+@media(max-width:950px){
+ .vase-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 
 @media(max-width:600px){
-
-    .topbar{
-        justify-content:center;
-        text-align:center;
-    }
-
-    header{
-        justify-content:center;
-    }
-
-    .logo{
-        text-align:center;
-    }
-
-    nav{
-        justify-content:center;
-        gap:13px;
-    }
-
-    nav a{
-        font-size:11px;
-    }
-
-    .hero{
-        min-height:300px;
-        padding:45px 6%;
-    }
-
-    .hero h2{
-        font-size:19px;
-    }
-
-    .hero p{
-        font-size:15px;
-    }
-
-    .section-heading{
-        font-size:25px;
-    }
-
-    .vase-grid{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-        gap:12px;
-    }
-
-    .vase-image{
-        height:145px;
-    }
-
-    .vase-info{
-        padding:12px 8px;
-    }
-
-    .vase-info h3{
-        font-size:15px;
-    }
-
-    .price{
-        font-size:13px;
-    }
-
-    .product-actions{
-        flex-direction:column;
-    }
-
-    .service-section{
-        grid-template-columns:1fr;
-    }
-
-    .location-container{
-        grid-template-columns:1fr;
-    }
-
-    .map-placeholder{
-        min-height:170px;
-        border-left:none;
-        border-top:1px solid #f2d9e5;
-    }
-
-    .footer-content{
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .footer-bottom{
-        justify-content:center;
-        text-align:center;
-    }
+ .topbar{justify-content:center;text-align:center}
+ header{justify-content:center}
+ .logo{text-align:center}
+ nav{justify-content:center;gap:10px}
+ nav a{font-size:9px}
+ .hero{min-height:230px;padding:30px 5%}
+ .hero h1{font-size:42px}
+ .hero h2{font-size:16px}
+ .hero p{font-size:12px}
+ .vase-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .vase-image{height:130px}
+ .vase-info{padding:9px 5px}
+ .vase-info h3{font-size:12px}
+ .product-actions{gap:5px}
+ .quantity{width:39px}
+ .service-section{grid-template-columns:1fr}
+ .service-card{min-height:120px;padding:17px}
+ .location-container{grid-template-columns:1fr}
+ .map-placeholder{min-height:110px}
+ .footer-content{grid-template-columns:1fr 1fr;text-align:left}
+ .footer-content>div:first-child{grid-column:1/-1}
+ .bottom-bar{padding:8px}
 }
 
 @media(max-width:340px){
-    .vase-grid{
-        grid-template-columns:1fr;
-    }
+ .vase-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="topbar">
-
-    <div>
-        <a href="tel:+250799645553">☎ +250 799 645 553</a>
-        &nbsp; | &nbsp;
-        <a href="https://wa.me/250799645553"
-           target="_blank">WhatsApp</a>
-    </div>
-
-    <div>JOY FLOWERS | Rwanda</div>
-
+ <div>
+  <a href="tel:+250799645553">☎ +250 799 645 553</a>
+  &nbsp; | &nbsp;
+  <a href="mailto:info@joyflowers.rw">✉ info@joyflowers.rw</a>
+ </div>
+ <div>📍 Kigali, Rwanda</div>
 </div>
 
-<!-- HEADER -->
-
 <header>
+ <div class="logo">
+  <span>JOY</span> FLOWERS
+  <small>Flowers Make Life Better</small>
+ </div>
 
-    <div class="logo">
-        <span>JOY</span> FLOWERS
-        <small>Flowers Make Life Better</small>
-    </div>
-
-    <nav>
-        <a href="index.html" id="navHome">HOME</a>
-        <a href="flowers.html" id="navFlowers">FLOWERS</a>
-        <a href="vases.html" class="active" id="navVases">VASES</a>
-        <a href="flower-vases.html" id="navBoth">FLOWER AND VASES</a>
-        <a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
-        <a href="rental.html" id="navRental">RENTAL</a>
-        <a href="admin.html" id="navAdmin">ADMIN</a>
-        <a href="#contact" id="navContact">CONTACT US</a>
-    </nav>
-
+ <nav>
+  <a href="index.html" id="navHome">HOME</a>
+  <a href="flowers.html" id="navFlowers">FLOWERS</a>
+  <a href="vases.html" class="active" id="navVases">VASES</a>
+  <a href="flower-vases.html" id="navBoth">FLOWER AND VASES</a>
+  <a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
+  <a href="rental.html" id="navRental">RENTAL</a>
+  <a href="admin.html" id="navAdmin">ADMIN</a>
+  <a href="#contact" id="navContact">CONTACT</a>
+ </nav>
 </header>
 
-<!-- HERO -->
-
 <section class="hero">
-
-    <div class="hero-content">
-
-        <h1 id="heroTitle">
-            Beautiful <span>Vases</span>
-        </h1>
-
-        <h2 id="heroSubtitle">
-            Elegant Vases, Beautiful Spaces.
-        </h2>
-
-        <p id="heroDescription">
-            Discover our vase collection.
-            Add elegance, beauty and style to your home,
-            office and special occasions.
-        </p>
-
-        <a href="#collection"
-           class="hero-button"
-           id="heroButton">
-            Explore Vases →
-        </a>
-
-    </div>
-
+ <div class="hero-content">
+  <h1 id="heroTitle">Beautiful <span>Vases</span></h1>
+  <h2 id="heroSubtitle">Elegant Vases, Beautiful Spaces.</h2>
+  <p id="heroDescription">
+   Discover our vase collection. Add elegance, beauty and style to your home, office and special occasions.
+  </p>
+  <a href="#collection" class="hero-button" id="heroButton">Explore Vases →</a>
+ </div>
 </section>
-
-<!-- SEARCH -->
 
 <section class="search-section">
-
-    <input
-        type="search"
-        id="vaseSearch"
-        placeholder="Search vases..."
-        aria-label="Search vases">
-
+ <input type="search" id="vaseSearch" placeholder="Search vases...">
 </section>
-
-<!-- VASE COLLECTION -->
 
 <section class="products" id="collection">
 
-    <h2 class="section-heading" id="collectionTitle">
-        Our Vase Collection
-    </h2>
+ <h2 class="section-heading" id="collectionTitle">Our Vase Collection</h2>
 
-    <p class="section-description" id="collectionDescription">
-        Discover beautiful vases for your home and special occasions.
-    </p>
+ <p class="section-description" id="collectionDescription">
+  Discover beautiful vases for your home and special occasions.
+ </p>
 
-    <!-- PRODUCTS WILL BE LOADED FROM ADMIN LATER -->
+ <div class="vase-grid" id="vaseGrid"></div>
 
-    <div class="vase-grid" id="vaseGrid">
-    </div>
+ <div class="empty-message" id="emptyMessage">
+  <h3 id="emptyTitle">Our Vase Collection</h3>
+  <p id="emptyDescription">
+   Our vases will appear here soon. Please check back later.
+  </p>
+ </div>
 
-    <div class="empty-message" id="emptyMessage">
-
-        <h3 id="emptyTitle">Our Vase Collection</h3>
-
-        <p id="emptyDescription">
-            Our vases will appear here soon.
-            Please check back later.
-        </p>
-
-    </div>
+ <div class="explore">
+  <a href="flower-vases.html" id="exploreOther">Explore Other Products →</a>
+ </div>
 
 </section>
-
-<!-- DELIVERY AND PICKUP -->
 
 <section class="service-section">
 
-    <div class="service-card">
+ <div class="service-card">
+  <div class="service-icon">🚚</div>
+  <div>
+   <h2 id="deliveryTitle">Delivery Service</h2>
+   <p id="deliveryDescription">
+    We can deliver your vases to your preferred location.
+   </p>
+  </div>
+ </div>
 
-        <h2 id="deliveryTitle">Delivery Service</h2>
-
-        <p id="deliveryDescription">
-            We can deliver your vases to your preferred location.
-            Contact us to arrange your delivery.
-        </p>
-
-    </div>
-
-    <div class="service-card">
-
-        <h2 id="pickupTitle">Pick Up</h2>
-
-        <p id="pickupDescription">
-            You can also visit our shop and collect your vases.
-            Contact us for more information.
-        </p>
-
-    </div>
+ <div class="service-card">
+  <div class="service-icon">🏪</div>
+  <div>
+   <h2 id="pickupTitle">Pick Up</h2>
+   <p id="pickupDescription">
+    You can also visit our shop and collect your vases.
+   </p>
+  </div>
+ </div>
 
 </section>
-
-<!-- LOCATION -->
 
 <section class="location-section">
+ <div class="location-container">
+  <div class="location-info">
+   <h2 id="locationTitle">Our Location</h2>
+   <p id="locationDescription">
+    Find JOY FLOWERS on Google Maps.
+   </p>
+  </div>
 
-    <div class="location-container">
-
-        <div class="location-info">
-
-            <h2 id="locationTitle">Our Location</h2>
-
-            <p id="locationDescription">
-                Find JOY FLOWERS on Google Maps.
-                Our official location will be added soon.
-            </p>
-
-        </div>
-
-        <div class="map-placeholder">
-
-            <div>
-                <span>📍</span>
-
-                <strong id="mapText">
-                    JOY FLOWERS LOCATION
-                </strong>
-
-                <p id="mapSubtext">
-                    Google Maps location will appear here.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-
+  <div class="map-placeholder">
+   <div>
+    <span>📍</span>
+    <strong id="mapText">JOY FLOWERS LOCATION</strong>
+    <p id="mapSubtext">Google Maps location will appear here.</p>
+   </div>
+  </div>
+ </div>
 </section>
-
-<!-- CONTACT -->
 
 <section class="contact-section" id="contact">
+ <h2 id="contactTitle">Contact Us</h2>
+ <p id="contactDescription">We are happy to help you.</p>
 
-    <h2 id="contactTitle">Contact Us</h2>
+ <a class="contact-number" href="tel:+250799645553">
+  +250 799 645 553
+ </a>
 
-    <p id="contactDescription">
-        We are happy to help you.
-        Contact JOY FLOWERS for orders and information.
-    </p>
-
-    <a class="contact-number"
-       href="tel:+250799645553">
-        +250 799 645 553
-    </a>
-
-    <div class="contact-buttons">
-
-        <a class="whatsapp-btn"
-           href="https://wa.me/250799645553"
-           target="_blank"
-           rel="noopener"
-           id="whatsappButton">
-            WhatsApp Us
-        </a>
-
-        <a class="call-btn"
-           href="tel:+250799645553"
-           id="callButton">
-            Call Us
-        </a>
-
-    </div>
-
+ <div class="contact-buttons">
+  <a class="whatsapp-btn" href="https://wa.me/250799645553" target="_blank" id="whatsappButton">WhatsApp Us</a>
+  <a class="call-btn" href="tel:+250799645553" id="callButton">Call Us</a>
+ </div>
 </section>
 
-<!-- FOOTER -->
-
 <footer>
+ <div class="footer-content">
+  <div>
+   <h2>🌹 JOY FLOWERS</h2>
+   <p id="footerDescription">Flowers Make Life Better.</p>
+  </div>
 
-    <div class="footer-content">
+  <div>
+   <h3 id="quickLinks">Quick Links</h3>
+   <a href="index.html" id="footerHome">Home</a>
+   <a href="flowers.html" id="footerFlowers">Flowers</a>
+   <a href="vases.html" id="footerVases">Vases</a>
+  </div>
 
-        <div>
-            <h2>JOY FLOWERS</h2>
+  <div>
+   <h3 id="ourServices">Our Services</h3>
+   <a href="garden-making.html" id="footerGarden">Garden Making</a>
+   <a href="rental.html" id="footerRental">Rental</a>
+   <a href="#contact" id="footerContact">Contact Us</a>
+   <a href="https://wa.me/250799645553">WhatsApp</a>
+  </div>
+ </div>
 
-            <p id="footerDescription">
-                Flowers Make Life Better.
-                Bringing beauty and happiness to every moment.
-            </p>
-        </div>
-
-        <div>
-
-            <h3 id="quickLinks">Quick Links</h3>
-
-            <a href="index.html" id="footerHome">Home</a>
-            <a href="flowers.html" id="footerFlowers">Flowers</a>
-            <a href="vases.html" id="footerVases">Vases</a>
-            <a href="rental.html" id="footerRental">Rental</a>
-
-        </div>
-
-        <div>
-
-            <h3 id="ourServices">Our Services</h3>
-
-            <a href="garden-making.html" id="footerGarden">
-                Garden Making
-            </a>
-
-            <a href="rental.html" id="footerRental2">
-                Rental
-            </a>
-
-            <a href="#contact" id="footerContact">
-                Contact Us
-            </a>
-
-            <a href="https://wa.me/250799645553"
-               target="_blank">WhatsApp</a>
-
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-        <span>© 2026 JOY FLOWERS. All Rights Reserved.</span>
-
-        <span>Designed by Irene</span>
-
-    </div>
-
+ <div class="footer-bottom">
+  <span>© 2026 JOY FLOWERS. All Rights Reserved.</span>
+  <span>Designed by Irene – Chat Now – Facebook</span>
+ </div>
 </footer>
+
+<!-- BOTTOM MY SELECTION -->
+
+<div class="bottom-bar" id="bottomBar">
+ <div class="bottom-left">
+  <div class="count" id="count">0</div>
+  <div>
+   <strong>MY SELECTION</strong>
+   <small id="barTotal">0 FRW</small>
+  </div>
+ </div>
+
+ <button onclick="showSelection()">MY SELECTION</button>
+</div>
+
+<!-- SELECTION WINDOW -->
+
+<div class="overlay" id="overlay" onclick="if(event.target===this)hideSelection()">
+ <div class="panel">
+
+  <div class="panel-head">
+   <h2>MY SELECTION</h2>
+   <button class="close" onclick="hideSelection()">×</button>
+  </div>
+
+  <div id="selectedItems"></div>
+
+  <div class="total-box">
+   <div class="total-row">
+    <span>Subtotal</span>
+    <strong id="subtotal">0 FRW</strong>
+   </div>
+
+   <div class="total-row">
+    <span>Discount (10%)</span>
+    <strong id="discount">0 FRW</strong>
+   </div>
+
+   <div class="total-row grand">
+    <span>TOTAL</span>
+    <strong id="total">0 FRW</strong>
+   </div>
+
+   <small class="discount-note" id="discountNote">
+    Select more than 10 items to receive a 10% discount.
+   </small>
+  </div>
+
+ </div>
+</div>
 
 <script>
 
-/* FIVE LANGUAGE SYSTEM */
+/* LANGUAGE SYSTEM */
 
-const translations = {
+const translations={
 
 en:{
-home:"HOME",
-flowers:"FLOWERS",
-vases:"VASES",
-both:"FLOWER AND VASES",
-garden:"GARDEN MAKING",
-rental:"RENTAL",
-admin:"ADMIN",
-contact:"CONTACT US",
+home:"HOME",flowers:"FLOWERS",vases:"VASES",
+both:"FLOWER AND VASES",garden:"GARDEN MAKING",
+rental:"RENTAL",admin:"ADMIN",contact:"CONTACT",
 heroTitle:'Beautiful <span>Vases</span>',
 heroSubtitle:"Elegant Vases, Beautiful Spaces.",
 heroDescription:"Discover our vase collection. Add elegance, beauty and style to your home, office and special occasions.",
@@ -871,279 +823,535 @@ collectionDescription:"Discover beautiful vases for your home and special occasi
 emptyTitle:"Our Vase Collection",
 emptyDescription:"Our vases will appear here soon. Please check back later.",
 deliveryTitle:"Delivery Service",
-deliveryDescription:"We can deliver your vases to your preferred location. Contact us to arrange your delivery.",
+deliveryDescription:"We can deliver your vases to your preferred location.",
 pickupTitle:"Pick Up",
-pickupDescription:"You can also visit our shop and collect your vases. Contact us for more information.",
+pickupDescription:"You can also visit our shop and collect your vases.",
 locationTitle:"Our Location",
-locationDescription:"Find JOY FLOWERS on Google Maps. Our official location will be added soon.",
+locationDescription:"Find JOY FLOWERS on Google Maps.",
 mapText:"JOY FLOWERS LOCATION",
 mapSubtext:"Google Maps location will appear here.",
 contactTitle:"Contact Us",
 contactDescription:"We are happy to help you. Contact JOY FLOWERS for orders and information.",
-whatsapp:"WhatsApp Us",
-call:"Call Us",
+whatsapp:"WhatsApp Us",call:"Call Us",
 footerDescription:"Flowers Make Life Better. Bringing beauty and happiness to every moment.",
-quickLinks:"Quick Links",
-services:"Our Services",
-footerHome:"Home",
-footerFlowers:"Flowers",
-footerVases:"Vases",
-footerRental:"Rental",
-footerGarden:"Garden Making",
-footerContact:"Contact Us"
+quickLinks:"Quick Links",services:"Our Services",
+footerHome:"Home",footerFlowers:"Flowers",
+footerVases:"Vases",footerRental:"Rental",
+footerGarden:"Garden Making",footerContact:"Contact Us"
 },
 
 rw:{
-home:"AHABANZA",
-flowers:"INDABYO",
-vases:"AMAVASE",
-both:"INDABYO N'AMAVASE",
-garden:"GUTUNGANYA UBUSITANI",
-rental:"GUKODESHA",
-admin:"ADMIN",
-contact:"TWANDIKIRE",
+home:"AHABANZA",flowers:"INDABYO",vases:"AMAVASE",
+both:"INDABYO N'AMAVASE",garden:"UBUSITANI",
+rental:"GUKODESHA",admin:"ADMIN",contact:"TWANDIKIRE",
 heroTitle:'Amavase <span>Meza</span>',
 heroSubtitle:"Amavase meza, ahantu heza.",
-heroDescription:"Menya amavase meza dufite. Ongera ubwiza n'imiterere myiza mu rugo rwawe, mu biro no mu birori.",
+heroDescription:"Menya amavase meza dufite. Ongera ubwiza mu rugo rwawe, mu biro no mu birori.",
 heroButton:"Reba Amavase →",
 search:"Shakisha amavase...",
 collection:"Amavase Dufite",
-collectionDescription:"Menya amavase meza yo gukoresha mu rugo no mu bihe byihariye.",
+collectionDescription:"Amavase meza yo gukoresha mu rugo no mu bihe byihariye.",
 emptyTitle:"Amavase Yacu",
 emptyDescription:"Amavase yacu azashyirwa hano vuba. Ongera uze kureba.",
 deliveryTitle:"Serivisi yo Kugeza Ibicuruzwa",
-deliveryDescription:"Dushobora kukugezaho amavase aho uherereye. Twandikire dutegure uko tuzayakugezaho.",
+deliveryDescription:"Dushobora kukugezaho amavase aho uherereye.",
 pickupTitle:"Kuzifatira ku Duka",
-pickupDescription:"Ushobora kuza ku iduka ryacu ukayifatira aho. Twandikire kugira ngo umenye amakuru.",
+pickupDescription:"Ushobora kuza ku iduka ryacu ukayifatira aho.",
 locationTitle:"Aho Dukorera",
-locationDescription:"Reba JOY FLOWERS kuri Google Maps. Aho dukorera hazashyirwaho vuba.",
+locationDescription:"Reba JOY FLOWERS kuri Google Maps.",
 mapText:"AHO JOY FLOWERS IKORERA",
 mapSubtext:"Google Maps izashyirwa hano.",
 contactTitle:"Twandikire",
 contactDescription:"Twiteguye kugufasha. Twandikire ku bijyanye no gutumiza amavase.",
 whatsapp:"Twandikire kuri WhatsApp",
 call:"Duhamagare",
-footerDescription:"Indabyo n'imitako myiza, ibihe byiza. Tuzana ubwiza n'ibyishimo mu buzima.",
-quickLinks:"Imiyoboro",
-services:"Serivisi Zacu",
-footerHome:"Ahabanza",
-footerFlowers:"Indabyo",
-footerVases:"Amavase",
-footerRental:"Gukodesha",
-footerGarden:"Gutunganya Ubusitani",
-footerContact:"Twandikire"
+footerDescription:"Indabyo n'imitako myiza. Tuzana ubwiza n'ibyishimo.",
+quickLinks:"Imiyoboro",services:"Serivisi Zacu",
+footerHome:"Ahabanza",footerFlowers:"Indabyo",
+footerVases:"Amavase",footerRental:"Gukodesha",
+footerGarden:"Gutunganya Ubusitani",footerContact:"Twandikire"
 },
 
 fr:{
-home:"ACCUEIL",
-flowers:"FLEURS",
-vases:"VASES",
-both:"FLEURS ET VASES",
-garden:"JARDINAGE",
-rental:"LOCATION",
-admin:"ADMIN",
-contact:"CONTACT",
+home:"ACCUEIL",flowers:"FLEURS",vases:"VASES",
+both:"FLEURS ET VASES",garden:"JARDINAGE",
+rental:"LOCATION",admin:"ADMIN",contact:"CONTACT",
 heroTitle:'Beaux <span>Vases</span>',
 heroSubtitle:"Des vases élégants, des espaces magnifiques.",
-heroDescription:"Découvrez notre collection de vases. Ajoutez élégance et beauté à votre maison, votre bureau et vos événements.",
+heroDescription:"Découvrez notre collection de vases pour votre maison et vos événements.",
 heroButton:"Découvrir les vases →",
 search:"Rechercher des vases...",
 collection:"Notre Collection de Vases",
-collectionDescription:"Découvrez de beaux vases pour votre maison et vos occasions spéciales.",
+collectionDescription:"Découvrez de beaux vases pour votre maison.",
 emptyTitle:"Notre Collection de Vases",
-emptyDescription:"Nos vases seront bientôt disponibles ici. Revenez nous voir.",
+emptyDescription:"Nos vases seront bientôt disponibles ici.",
 deliveryTitle:"Service de Livraison",
-deliveryDescription:"Nous pouvons livrer vos vases à l'adresse de votre choix. Contactez-nous pour organiser la livraison.",
+deliveryDescription:"Nous pouvons livrer vos vases à l'adresse de votre choix.",
 pickupTitle:"Retrait en Boutique",
-pickupDescription:"Vous pouvez également venir récupérer vos vases dans notre boutique.",
+pickupDescription:"Vous pouvez venir récupérer vos vases dans notre boutique.",
 locationTitle:"Notre Adresse",
-locationDescription:"Retrouvez JOY FLOWERS sur Google Maps. Notre emplacement sera ajouté bientôt.",
+locationDescription:"Retrouvez JOY FLOWERS sur Google Maps.",
 mapText:"EMPLACEMENT JOY FLOWERS",
 mapSubtext:"La carte Google Maps apparaîtra ici.",
 contactTitle:"Contactez-nous",
-contactDescription:"Nous sommes heureux de vous aider. Contactez JOY FLOWERS pour vos commandes.",
-whatsapp:"WhatsApp",
-call:"Appelez-nous",
-footerDescription:"De beaux vases et de beaux moments. Apportons beauté et bonheur.",
-quickLinks:"Liens Rapides",
-services:"Nos Services",
-footerHome:"Accueil",
-footerFlowers:"Fleurs",
-footerVases:"Vases",
-footerRental:"Location",
-footerGarden:"Jardinage",
-footerContact:"Contact"
+contactDescription:"Nous sommes heureux de vous aider.",
+whatsapp:"WhatsApp",call:"Appelez-nous",
+footerDescription:"De beaux vases et de beaux moments.",
+quickLinks:"Liens Rapides",services:"Nos Services",
+footerHome:"Accueil",footerFlowers:"Fleurs",
+footerVases:"Vases",footerRental:"Location",
+footerGarden:"Jardinage",footerContact:"Contact"
 },
 
 sw:{
-home:"NYUMBANI",
-flowers:"MAUA",
-vases:"VASE",
-both:"MAUA NA VASE",
-garden:"UTENGENEZAJI WA BUSTANI",
-rental:"KUKODISHA",
-admin:"ADMIN",
-contact:"WASILIANA NASI",
+home:"NYUMBANI",flowers:"MAUA",vases:"VASE",
+both:"MAUA NA VASE",garden:"BUSTANI",
+rental:"KUKODISHA",admin:"ADMIN",contact:"WASILIANA NASI",
 heroTitle:'Vase <span>Nzuri</span>',
 heroSubtitle:"Vase nzuri, sehemu nzuri.",
-heroDescription:"Gundua mkusanyiko wetu wa vase. Ongeza uzuri na mvuto nyumbani kwako, ofisini na kwenye hafla maalum.",
+heroDescription:"Gundua mkusanyiko wetu wa vase kwa nyumba yako na hafla maalum.",
 heroButton:"Tazama Vase →",
 search:"Tafuta vase...",
 collection:"Mkusanyiko Wetu wa Vase",
-collectionDescription:"Gundua vase nzuri kwa nyumba yako na hafla maalum.",
+collectionDescription:"Gundua vase nzuri kwa nyumba yako.",
 emptyTitle:"Vase Zetu",
-emptyDescription:"Vase zetu zitaonekana hapa hivi karibuni. Tafadhali rudi tena.",
+emptyDescription:"Vase zetu zitaonekana hapa hivi karibuni.",
 deliveryTitle:"Huduma ya Uwasilishaji",
-deliveryDescription:"Tunaweza kukuletea vase mahali unapopendelea. Wasiliana nasi kupanga uwasilishaji.",
+deliveryDescription:"Tunaweza kukuletea vase mahali unapopendelea.",
 pickupTitle:"Kuchukua Dukani",
-pickupDescription:"Unaweza pia kutembelea duka letu na kuchukua vase zako.",
+pickupDescription:"Unaweza kutembelea duka letu na kuchukua vase zako.",
 locationTitle:"Mahali Tulipo",
-locationDescription:"Pata JOY FLOWERS kwenye Google Maps. Mahali petu rasmi yataongezwa hivi karibuni.",
+locationDescription:"Pata JOY FLOWERS kwenye Google Maps.",
 mapText:"MAHALI PA JOY FLOWERS",
 mapSubtext:"Ramani ya Google itaonekana hapa.",
 contactTitle:"Wasiliana Nasi",
-contactDescription:"Tuko tayari kukusaidia. Wasiliana na JOY FLOWERS kwa oda na taarifa.",
-whatsapp:"WhatsApp",
-call:"Piga Simu",
-footerDescription:"Vase nzuri, sehemu nzuri. Tunakuletea uzuri na furaha.",
-quickLinks:"Viungo",
-services:"Huduma Zetu",
-footerHome:"Nyumbani",
-footerFlowers:"Maua",
-footerVases:"Vase",
-footerRental:"Kukodisha",
-footerGarden:"Utengenezaji wa Bustani",
-footerContact:"Wasiliana Nasi"
+contactDescription:"Tuko tayari kukusaidia.",
+whatsapp:"WhatsApp",call:"Piga Simu",
+footerDescription:"Vase nzuri, sehemu nzuri.",
+quickLinks:"Viungo",services:"Huduma Zetu",
+footerHome:"Nyumbani",footerFlowers:"Maua",
+footerVases:"Vase",footerRental:"Kukodisha",
+footerGarden:"Bustani",footerContact:"Wasiliana Nasi"
 },
 
 zh:{
-home:"首页",
-flowers:"鲜花",
-vases:"花瓶",
-both:"鲜花和花瓶",
-garden:"花园设计",
-rental:"租赁",
-admin:"管理",
-contact:"联系我们",
+home:"首页",flowers:"鲜花",vases:"花瓶",
+both:"鲜花和花瓶",garden:"花园设计",
+rental:"租赁",admin:"管理",contact:"联系我们",
 heroTitle:'美丽的<span>花瓶</span>',
 heroSubtitle:"优雅花瓶，美丽空间。",
-heroDescription:"探索我们的花瓶系列，为您的家、办公室和特别活动增添优雅与美丽。",
+heroDescription:"探索我们的花瓶系列，为您的家和办公室增添美丽。",
 heroButton:"浏览花瓶 →",
 search:"搜索花瓶...",
 collection:"我们的花瓶系列",
-collectionDescription:"为您的家和特别场合寻找美丽的花瓶。",
+collectionDescription:"为您的家寻找美丽的花瓶。",
 emptyTitle:"我们的花瓶",
 emptyDescription:"花瓶即将在这里展示，敬请期待。",
 deliveryTitle:"配送服务",
-deliveryDescription:"我们可以将花瓶送到您指定的地点。请联系我们安排配送。",
+deliveryDescription:"我们可以将花瓶送到您指定的地点。",
 pickupTitle:"到店自取",
 pickupDescription:"您也可以到我们的商店领取花瓶。",
 locationTitle:"我们的位置",
-locationDescription:"在 Google 地图上查找 JOY FLOWERS。官方位置即将添加。",
+locationDescription:"在 Google 地图上查找 JOY FLOWERS。",
 mapText:"JOY FLOWERS 位置",
 mapSubtext:"Google 地图将在这里显示。",
 contactTitle:"联系我们",
-contactDescription:"我们很乐意为您提供帮助。欢迎联系 JOY FLOWERS 进行订购。",
-whatsapp:"WhatsApp 联系我们",
-call:"拨打电话",
-footerDescription:"美丽的花瓶，美好的空间。为生活增添美丽与快乐。",
-quickLinks:"快速链接",
-services:"我们的服务",
-footerHome:"首页",
-footerFlowers:"鲜花",
-footerVases:"花瓶",
-footerRental:"租赁",
-footerGarden:"花园设计",
-footerContact:"联系我们"
+contactDescription:"我们很乐意为您提供帮助。",
+whatsapp:"WhatsApp 联系我们",call:"拨打电话",
+footerDescription:"美丽的花瓶，美好的空间。",
+quickLinks:"快速链接",services:"我们的服务",
+footerHome:"首页",footerFlowers:"鲜花",
+footerVases:"花瓶",footerRental:"租赁",
+footerGarden:"花园设计",footerContact:"联系我们"
 }
 
 };
 
-/* APPLY LANGUAGE */
-
 function applyLanguage(){
 
-    const language =
-        localStorage.getItem("joyFlowersLanguage") || "en";
+ const language=localStorage.getItem("joyFlowersLanguage")||"en";
+ const t=translations[language]||translations.en;
 
-    const t = translations[language] || translations.en;
+ document.documentElement.lang=language;
 
-    document.documentElement.lang = language;
+ const set=(id,value)=>{
+  const el=document.getElementById(id);
+  if(el)el.textContent=value;
+ };
 
-    const set = (id,value) => {
-        const el = document.getElementById(id);
-        if(el) el.textContent = value;
-    };
+ set("navHome",t.home);
+ set("navFlowers",t.flowers);
+ set("navVases",t.vases);
+ set("navBoth",t.both);
+ set("navGarden",t.garden);
+ set("navRental",t.rental);
+ set("navAdmin",t.admin);
+ set("navContact",t.contact);
 
-    set("navHome",t.home);
-    set("navFlowers",t.flowers);
-    set("navVases",t.vases);
-    set("navBoth",t.both);
-    set("navGarden",t.garden);
-    set("navRental",t.rental);
-    set("navAdmin",t.admin);
-    set("navContact",t.contact);
+ document.getElementById("heroTitle").innerHTML=t.heroTitle;
 
-    document.getElementById("heroTitle").innerHTML =
-        t.heroTitle;
+ set("heroSubtitle",t.heroSubtitle);
+ set("heroDescription",t.heroDescription);
+ set("heroButton",t.heroButton);
+ set("collectionTitle",t.collection);
+ set("collectionDescription",t.collectionDescription);
+ set("emptyTitle",t.emptyTitle);
+ set("emptyDescription",t.emptyDescription);
+ set("deliveryTitle",t.deliveryTitle);
+ set("deliveryDescription",t.deliveryDescription);
+ set("pickupTitle",t.pickupTitle);
+ set("pickupDescription",t.pickupDescription);
+ set("locationTitle",t.locationTitle);
+ set("locationDescription",t.locationDescription);
+ set("mapText",t.mapText);
+ set("mapSubtext",t.mapSubtext);
+ set("contactTitle",t.contactTitle);
+ set("contactDescription",t.contactDescription);
+ set("whatsappButton",t.whatsapp);
+ set("callButton",t.call);
+ set("footerDescription",t.footerDescription);
+ set("quickLinks",t.quickLinks);
+ set("ourServices",t.services);
+ set("footerHome",t.footerHome);
+ set("footerFlowers",t.footerFlowers);
+ set("footerVases",t.footerVases);
+ set("footerRental",t.footerRental);
+ set("footerGarden",t.footerGarden);
+ set("footerContact",t.footerContact);
 
-    set("heroSubtitle",t.heroSubtitle);
-    set("heroDescription",t.heroDescription);
-    set("heroButton",t.heroButton);
-
-    set("collectionTitle",t.collection);
-    set("collectionDescription",t.collectionDescription);
-    set("emptyTitle",t.emptyTitle);
-    set("emptyDescription",t.emptyDescription);
-
-    set("deliveryTitle",t.deliveryTitle);
-    set("deliveryDescription",t.deliveryDescription);
-    set("pickupTitle",t.pickupTitle);
-    set("pickupDescription",t.pickupDescription);
-
-    set("locationTitle",t.locationTitle);
-    set("locationDescription",t.locationDescription);
-    set("mapText",t.mapText);
-    set("mapSubtext",t.mapSubtext);
-
-    set("contactTitle",t.contactTitle);
-    set("contactDescription",t.contactDescription);
-    set("whatsappButton",t.whatsapp);
-    set("callButton",t.call);
-
-    set("footerDescription",t.footerDescription);
-    set("quickLinks",t.quickLinks);
-    set("ourServices",t.services);
-    set("footerHome",t.footerHome);
-    set("footerFlowers",t.footerFlowers);
-    set("footerVases",t.footerVases);
-    set("footerRental",t.footerRental);
-    set("footerGarden",t.footerGarden);
-    set("footerContact",t.footerContact);
-
-    document.getElementById("vaseSearch").placeholder =
-        t.search;
+ document.getElementById("vaseSearch").placeholder=t.search;
 }
 
 applyLanguage();
 
-/* SEARCH READY FOR ADMIN PRODUCTS */
+/* VASE PRODUCTS FROM ADMIN */
 
-document.getElementById("vaseSearch")
-.addEventListener("input",function(){
+let vaseProducts=[];
 
-    const search = this.value.toLowerCase();
+function getVaseProducts(){
 
-    document.querySelectorAll(".vase-card").forEach(card=>{
+ try{
+  const saved=localStorage.getItem("joyVases");
+  return saved?JSON.parse(saved):[];
+ }catch(error){
+  console.error("Vase storage error:",error);
+  return [];
+ }
+}
 
-        const name =
-            card.dataset.name?.toLowerCase() || "";
+function money(number){
+ return Number(number||0).toLocaleString("en-US")+" FRW";
+}
 
-        card.style.display =
-            name.includes(search) ? "" : "none";
+function renderVases(){
 
-    });
+ vaseProducts=getVaseProducts();
 
+ const grid=document.getElementById("vaseGrid");
+ const empty=document.getElementById("emptyMessage");
+
+ grid.innerHTML="";
+
+ if(!Array.isArray(vaseProducts)||vaseProducts.length===0){
+  empty.style.display="block";
+  return;
+ }
+
+ empty.style.display="none";
+
+ vaseProducts.forEach((product,index)=>{
+
+  const name=product.name||product.title||product.productName||"Vase";
+  const price=Number(product.price||0);
+  const image=product.image||product.imageUrl||product.image_url||"";
+  const status=String(product.status||"available").toLowerCase();
+  const sold=product.sold===true||status==="sold"||status==="unavailable";
+
+  const card=document.createElement("div");
+  card.className="vase-card"+(sold?" sold-card":"");
+
+  card.dataset.name=name.toLowerCase();
+
+  const img=document.createElement("img");
+  img.className="vase-image";
+  img.src=image;
+  img.alt=name;
+  img.loading="lazy";
+
+  img.onerror=()=>{
+   img.style.display="none";
+   const fallback=document.createElement("div");
+   fallback.className="vase-image";
+   fallback.textContent="Image unavailable";
+   card.insertBefore(fallback,card.firstChild);
+  };
+
+  card.appendChild(img);
+
+  if(sold){
+   const badge=document.createElement("span");
+   badge.className="sold-badge";
+   badge.textContent="SOLD";
+   card.appendChild(badge);
+  }
+
+  const info=document.createElement("div");
+  info.className="vase-info";
+
+  const title=document.createElement("h3");
+  title.textContent=name;
+
+  const priceEl=document.createElement("div");
+  priceEl.className="price";
+  priceEl.textContent=money(price);
+
+  info.appendChild(title);
+  info.appendChild(priceEl);
+
+  const actions=document.createElement("div");
+  actions.className="product-actions";
+
+  if(!sold){
+
+   const label=document.createElement("label");
+   label.className="select-label";
+
+   const checkbox=document.createElement("input");
+   checkbox.type="checkbox";
+   checkbox.className="vase-checkbox";
+
+   const labelText=document.createElement("span");
+   labelText.textContent="Select";
+
+   label.appendChild(checkbox);
+   label.appendChild(labelText);
+
+   const quantity=document.createElement("input");
+   quantity.type="number";
+   quantity.className="quantity";
+   quantity.min="1";
+   quantity.step="1";
+   quantity.value="1";
+   quantity.setAttribute("aria-label","Quantity");
+
+   actions.appendChild(label);
+   actions.appendChild(quantity);
+
+   checkbox.addEventListener("change",()=>{
+    const qty=Number(quantity.value);
+
+    if(checkbox.checked){
+     if(!Number.isInteger(qty)||qty<1){
+      checkbox.checked=false;
+      alert("Please enter a valid quantity.");
+      return;
+     }
+
+     addToSelection(product,qty);
+    }else{
+     removeFromSelection(product);
+    }
+   });
+
+   quantity.addEventListener("change",()=>{
+    let qty=parseInt(quantity.value,10);
+
+    if(!Number.isInteger(qty)||qty<1){
+     qty=1;
+     quantity.value=1;
+    }
+
+    if(checkbox.checked){
+     addToSelection(product,qty);
+    }
+   });
+
+  }else{
+   const soldText=document.createElement("span");
+   soldText.textContent="Unavailable";
+   soldText.style.color="#d71945";
+   soldText.style.fontSize="10px";
+   actions.appendChild(soldText);
+  }
+
+  info.appendChild(actions);
+  card.appendChild(info);
+  grid.appendChild(card);
+
+ });
+
+ applySearch();
+}
+
+/* MY SELECTION */
+
+let selectedVases=[];
+
+function addToSelection(product,quantity){
+
+ const id=String(product.id||product.name||product.title);
+
+ const name=product.name||product.title||product.productName||"Vase";
+ const price=Number(product.price||0);
+
+ const existing=selectedVases.find(item=>item.id===id);
+
+ if(existing){
+  existing.quantity=quantity;
+ }else{
+  selectedVases.push({
+   id:id,
+   name:name,
+   price:price,
+   quantity:quantity
+  });
+ }
+
+ updateSelection();
+}
+
+function removeFromSelection(product){
+
+ const id=String(product.id||product.name||product.title);
+
+ selectedVases=selectedVases.filter(item=>item.id!==id);
+
+ updateSelection();
+}
+
+function updateSelection(){
+
+ const count=selectedVases.reduce((sum,item)=>sum+item.quantity,0);
+
+ const subtotal=selectedVases.reduce(
+  (sum,item)=>sum+(item.price*item.quantity),0
+ );
+
+ const discount=count>10?subtotal*0.10:0;
+
+ const total=subtotal-discount;
+
+ document.getElementById("count").textContent=count;
+
+ document.getElementById("barTotal").textContent=money(total);
+
+ document.getElementById("subtotal").textContent=money(subtotal);
+
+ document.getElementById("discount").textContent=money(discount);
+
+ document.getElementById("total").textContent=money(total);
+
+ document.getElementById("discountNote").textContent=
+ count>10
+ ? "10% discount applied."
+ : "Select more than 10 items to receive a 10% discount.";
+
+ const list=document.getElementById("selectedItems");
+
+ if(selectedVases.length===0){
+  list.innerHTML='<p style="text-align:center;padding:22px;color:#888;font-size:12px">No vases selected yet.</p>';
+  return;
+ }
+
+ list.innerHTML="";
+
+ selectedVases.forEach((item,index)=>{
+
+  const row=document.createElement("div");
+  row.className="selection-item";
+
+  const details=document.createElement("div");
+
+  const name=document.createElement("strong");
+  name.textContent=item.name;
+
+  const description=document.createElement("small");
+
+  description.textContent=
+   money(item.price)+" × "+item.quantity+" = "+
+   money(item.price*item.quantity);
+
+  details.appendChild(name);
+  details.appendChild(description);
+
+  const remove=document.createElement("button");
+  remove.className="remove-btn";
+  remove.textContent="Remove";
+
+  remove.addEventListener("click",()=>{
+   selectedVases.splice(index,1);
+   updateSelection();
+   renderVases();
+  });
+
+  row.appendChild(details);
+  row.appendChild(remove);
+
+  list.appendChild(row);
+
+ });
+
+}
+
+function showSelection(){
+ document.getElementById("overlay").classList.add("show");
+ updateSelection();
+}
+
+function hideSelection(){
+ document.getElementById("overlay").classList.remove("show");
+}
+
+/* SEARCH */
+
+function applySearch(){
+
+ const search=document.getElementById("vaseSearch").value.toLowerCase();
+
+ let visible=0;
+
+ document.querySelectorAll(".vase-card").forEach(card=>{
+
+  const name=card.dataset.name||"";
+
+  const matches=name.includes(search);
+
+  card.style.display=matches?"":"none";
+
+  if(matches)visible++;
+
+ });
+
+ const empty=document.getElementById("emptyMessage");
+
+ if(vaseProducts.length===0){
+  empty.style.display="block";
+ }else{
+  empty.style.display=visible===0?"block":"none";
+
+  if(visible===0){
+   document.getElementById("emptyTitle").textContent="No Vases Found";
+   document.getElementById("emptyDescription").textContent="Try another search.";
+  }
+ }
+
+}
+
+document.getElementById("vaseSearch").addEventListener("input",applySearch);
+
+/* INITIALIZE */
+
+document.getElementById("bottomBar").style.display="flex";
+
+renderVases();
+updateSelection();
+
+/* UPDATE WHEN ADMIN CHANGES PRODUCTS IN ANOTHER TAB */
+
+window.addEventListener("storage",event=>{
+ if(event.key==="joyVases"){
+  renderVases();
+ }
 });
 
 </script>
