@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers & Vases | JOY FLOWERS</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--pink:#ed1685;
+--green:#174c28;
+--yellow:#ffcf18;
+--light:#fff0f7;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:white;
+color:#333;
+}
+
+.topbar{
+background:var(--pink);
+color:white;
+padding:10px 5%;
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px;
+font-size:13px;
+}
+
+.topbar a{color:white;text-decoration:none}
+
+header{
+padding:18px 4%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+flex-wrap:wrap;
+gap:15px;
+box-shadow:0 3px 15px #00000012;
+}
+
+.logo{
+font-size:28px;
+font-weight:900;
+color:var(--green);
+}
+
+.logo span{color:var(--pink)}
+
+.logo small{
+display:block;
+font-size:11px;
+color:var(--pink);
+font-weight:normal;
+}
+
+nav{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
+nav a{
+font-size:11px;
+font-weight:bold;
+text-decoration:none;
+color:#333;
+}
+
+nav a:hover,nav a.active{color:var(--pink)}
+
+/* HERO */
+
+.hero{
+padding:75px 7%;
+background:linear-gradient(120deg,#fff0f7,#fff,#edf5eb);
+text-align:center;
+}
+
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(40px,6vw,68px);
+color:var(--green);
+margin-bottom:15px;
+}
+
+.hero h1 span{color:var(--pink)}
+
+.hero h2{
+font-family:Georgia,serif;
+font-style:italic;
+color:var(--pink);
+font-size:23px;
+margin-bottom:18px;
+}
+
+.hero p{
+max-width:650px;
+margin:auto;
+line-height:1.8;
+font-size:16px;
+color:#555;
+}
+
+.main-btn{
+display:inline-block;
+margin-top:25px;
+background:var(--pink);
+color:white;
+padding:14px 29px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* SEARCH */
+
+.search-section{
+padding:25px 5%;
+text-align:center;
+background:#fff7fb;
+}
+
+.search-section input{
+width:100%;
+max-width:480px;
+padding:15px 20px;
+border:1px solid #e9c9da;
+border-radius:30px;
+outline:none;
+font-size:14px;
+}
+
+/* PRODUCTS */
+
+.products{padding:35px 4% 50px}
+
+.heading{
+text-align:center;
+font-family:Georgia,serif;
+font-size:30px;
+color:var(--green);
+margin-bottom:12px;
+}
+
+.description{
+text-align:center;
+color:#777;
+margin-bottom:30px;
+font-size:14px;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:20px;
+}
+
+.product-card{
+border:1px solid #f0d6e4;
+border-radius:14px;
+overflow:hidden;
+background:white;
+box-shadow:0 4px 15px #0000000d;
+}
+
+.product-image{
+height:200px;
+background:#fff0f7;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#d69ab9;
+font-size:13px;
+}
+
+.product-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.product-info{
+padding:16px;
+text-align:center;
+}
+
+.product-info h3{
+color:var(--green);
+font-size:17px;
+margin-bottom:10px;
+}
+
+.price{
+color:var(--pink);
+font-weight:bold;
+margin-bottom:14px;
+}
+
+.actions{
+display:flex;
+gap:9px;
+}
+
+.actions button{
+flex:1;
+padding:11px 8px;
+border:0;
+border-radius:25px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.view{background:var(--pink);color:white}
+.order{background:var(--yellow);color:#333}
+
+.empty{
+padding:35px 20px;
+text-align:center;
+border-radius:14px;
+background:var(--light);
+color:var(--green);
+}
+
+.empty p{
+color:#777;
+margin-top:12px;
+line-height:1.7;
+}
+
+/* SERVICES */
+
+.services{
+padding:10px 4% 35px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.service{
+padding:30px;
+min-height:180px;
+border-radius:15px;
+background:#ffe6f2;
+}
+
+.service:nth-child(2){background:#edf5eb}
+
+.service h2{
+color:var(--green);
+font-family:Georgia,serif;
+font-size:24px;
+margin-bottom:13px;
+}
+
+.service p{line-height:1.7;color:#555}
+
+.service a{
+display:inline-block;
+margin-top:16px;
+padding:12px 23px;
+background:var(--pink);
+color:white;
+text-decoration:none;
+border-radius:25px;
+font-weight:bold;
+}
+
+/* LOCATION */
+
+.location{padding:10px 4% 35px}
+
+.location-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+background:var(--light);
+border-radius:15px;
+overflow:hidden;
+}
+
+.location-info{
+padding:30px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+}
+
+.location-info h2{
+font-family:Georgia,serif;
+font-size:28px;
+color:var(--green);
+margin-bottom:13px;
+}
+
+.location-info p{line-height:1.7;color:#555}
+
+.map-placeholder{
+min-height:220px;
+background:linear-gradient(135deg,#e5eee1,#f6f1e5);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+color:var(--green);
+}
+
+.map-placeholder span{
+display:block;
+font-size:40px;
+margin-bottom:12px;
+}
+
+/* CONTACT */
+
+.contact{
+padding:40px 20px;
+background:#fff0f7;
+text-align:center;
+}
+
+.contact h2{
+font-family:Georgia,serif;
+color:var(--green);
+font-size:30px;
+margin-bottom:13px;
+}
+
+.contact p{margin-bottom:20px}
+
+.phone{
+display:block;
+color:var(--green);
+font-size:21px;
+font-weight:bold;
+text-decoration:none;
+margin-bottom:20px;
+}
+
+.contact-buttons{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.contact-buttons a{
+padding:14px 25px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+}
+
+.whatsapp{background:#20bd62}
+.call{background:var(--pink)}
+
+/* FOOTER */
+
+footer{
+background:var(--green);
+color:white;
+padding:35px 4% 0;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:1.5fr 1fr 1fr;
+gap:25px;
+padding-bottom:30px;
+}
+
+footer h2,footer h3{margin-bottom:14px}
+footer p{font-size:14px;line-height:1.7}
+
+footer a{
+display:block;
+color:white;
+text-decoration:none;
+font-size:14px;
+margin:10px 0;
+}
+
+.footer-bottom{
+background:var(--pink);
+margin:0 -4.35%;
+padding:17px 4.35%;
+display:flex;
+justify-content:space-between;
+gap:10px;
+flex-wrap:wrap;
+font-size:13px;
+font-weight:bold;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+@media(max-width:600px){
+.topbar{justify-content:center;text-align:center}
+header{justify-content:center}
+.logo{text-align:center}
+nav{justify-content:center;gap:12px}
+nav a{font-size:10px}
+
+.hero{padding:55px 6%}
+.hero h1{font-size:43px}
+.hero h2{font-size:19px}
+.hero p{font-size:14px}
+
+.heading{font-size:25px}
+.product-grid{gap:10px}
+.product-image{height:140px}
+.product-info{padding:10px 7px}
+.product-info h3{font-size:14px}
+.price{font-size:13px}
+.actions{flex-direction:column}
+
+.services{grid-template-columns:1fr}
+.location-box{grid-template-columns:1fr}
+.map-placeholder{min-height:170px}
+
+.footer-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.footer-bottom{
+justify-content:center;
+text-align:center;
+}
+}
+
+@media(max-width:340px){
+.product-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+<div>
+<a href="tel:+250799645553">☎ +250 799 645 553</a>
+&nbsp; | &nbsp;
+<a href="https://wa.me/250799645553">WhatsApp</a>
+</div>
+<div>JOY FLOWERS | Rwanda</div>
+</div>
+
+<header>
+
+<div class="logo">
+<span>JOY</span> FLOWERS
+<small>Flowers Make Life Better</small>
+</div>
+
+<nav>
+<a href="index.html" id="navHome">HOME</a>
+<a href="flowers.html" id="navFlowers">FLOWERS</a>
+<a href="vases.html" id="navVases">VASES</a>
+<a href="flower-vases.html" class="active" id="navBoth">FLOWERS & VASES</a>
+<a href="garden-making.html" id="navGarden">GARDEN MAKING</a>
+<a href="rental.html" id="navRental">RENTAL</a>
+<a href="admin.html" id="navAdmin">ADMIN</a>
+<a href="#contact" id="navContact">CONTACT US</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1 id="heroTitle">Flowers <span>& Vases</span></h1>
+
+<h2 id="heroSubtitle">Beauty in Every Detail.</h2>
+
+<p id="heroDescription">
+Discover beautiful flowers and elegant vases
+for your home, office, gifts and special occasions.
+Let JOY FLOWERS make your moments special.
+</p>
+
+<a href="#collection" class="main-btn" id="heroButton">
+Explore Collection →
+</a>
+
+</section>
+
+<section class="search-section">
+<input type="search" id="search"
+placeholder="Search flowers and vases...">
+</section>
+
+<section class="products" id="collection">
+
+<h2 class="heading" id="collectionTitle">
+Flowers & Vases Collection
+</h2>
+
+<p class="description" id="collectionDescription">
+Explore our beautiful flowers and elegant vases.
+</p>
+
+<div class="product-grid" id="productGrid"></div>
+
+<div class="empty" id="empty">
+<h3 id="emptyTitle">Our Collection</h3>
+<p id="emptyDescription">
+Our flowers and vases will appear here soon.
+Please check back later.
+</p>
+</div>
+
+</section>
+
+<section class="services">
+
+<div class="service">
+<h2 id="deliveryTitle">🚚 Delivery Service</h2>
+<p id="deliveryDescription">
+We deliver flowers and vases to your preferred location.
+Contact us to arrange your delivery.
+</p>
+<a href="https://wa.me/250799645553" id="deliveryButton">
+Order Now →
+</a>
+</div>
+
+<div class="service">
+<h2 id="pickupTitle">🏪 Pick Up</h2>
+<p id="pickupDescription">
+You can also visit our shop and collect your order.
+Contact us for more information.
+</p>
+<a href="https://wa.me/250799645553" id="pickupButton">
+Contact Us →
+</a>
+</div>
+
+</section>
+
+<section class="location">
+
+<div class="location-box">
+
+<div class="location-info">
+<h2 id="locationTitle">Our Location</h2>
+<p id="locationDescription">
+Find JOY FLOWERS on Google Maps.
+Our official location will be added soon.
+</p>
+</div>
+
+<div class="map-placeholder">
+<div>
+<span>📍</span>
+<strong>JOY FLOWERS</strong>
+<p id="mapDescription">
+Official Google Maps location coming soon.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="contact" id="contact">
+
+<h2 id="contactTitle">Contact Us</h2>
+
+<p id="contactDescription">
+We are happy to help you. Contact JOY FLOWERS today.
+</p>
+
+<a class="phone" href="tel:+250799645553">
++250 799 645 553
+</a>
+
+<div class="contact-buttons">
+<a class="whatsapp"
+href="https://wa.me/250799645553"
+target="_blank" id="whatsappButton">
+WhatsApp Us
+</a>
+
+<a class="call"
+href="tel:+250799645553"
+id="callButton">
+Call Us
+</a>
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h2>JOY FLOWERS</h2>
+<p id="footerDescription">
+Flowers Make Life Better.
+Bringing beauty and happiness to every moment.
+</p>
+</div>
+
+<div>
+<h3 id="quickLinks">Quick Links</h3>
+<a href="index.html" id="footerHome">Home</a>
+<a href="flowers.html" id="footerFlowers">Flowers</a>
+<a href="vases.html" id="footerVases">Vases</a>
+<a href="flower-vases.html" id="footerBoth">Flowers & Vases</a>
+</div>
+
+<div>
+<h3 id="servicesTitle">Our Services</h3>
+<a href="garden-making.html" id="footerGarden">Garden Making</a>
+<a href="rental.html" id="footerRental">Rental</a>
+<a href="#contact" id="footerContact">Contact Us</a>
+<a href="https://wa.me/250799645553">WhatsApp</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<span>© 2026 JOY FLOWERS. All Rights Reserved.</span>
+<span>Designed by Irene</span>
+</div>
+
+</footer>
+
+<script>
+
+const translations = {
+
+en:{
+home:"HOME",flowers:"FLOWERS",vases:"VASES",
+both:"FLOWERS & VASES",garden:"GARDEN MAKING",
+rental:"RENTAL",admin:"ADMIN",contact:"CONTACT US",
+title:'Flowers <span>& Vases</span>',
+subtitle:"Beauty in Every Detail.",
+description:"Discover beautiful flowers and elegant vases for your home, office, gifts and special occasions. Let JOY FLOWERS make your moments special.",
+button:"Explore Collection →",
+search:"Search flowers and vases...",
+collection:"Flowers & Vases Collection",
+collectionDesc:"Explore our beautiful flowers and elegant vases.",
+empty:"Our Collection",
+emptyDesc:"Our flowers and vases will appear here soon. Please check back later.",
+delivery:"🚚 Delivery Service",
+deliveryDesc:"We deliver flowers and vases to your preferred location. Contact us to arrange your delivery.",
+deliveryButton:"Order Now →",
+pickup:"🏪 Pick Up",
+pickupDesc:"You can also visit our shop and collect your order. Contact us for more information.",
+pickupButton:"Contact Us →",
+location:"Our Location",
+locationDesc:"Find JOY FLOWERS on Google Maps. Our official location will be added soon.",
+map:"Official Google Maps location coming soon.",
+contactTitle:"Contact Us",
+contactDesc:"We are happy to help you. Contact JOY FLOWERS today.",
+whatsapp:"WhatsApp Us",call:"Call Us",
+footer:"Flowers Make Life Better. Bringing beauty and happiness to every moment.",
+quick:"Quick Links",services:"Our Services",
+footerHome:"Home",footerFlowers:"Flowers",
+footerVases:"Vases",footerBoth:"Flowers & Vases",
+footerGarden:"Garden Making",footerRental:"Rental",
+footerContact:"Contact Us"
+},
+
+rw:{
+home:"AHABANZA",flowers:"INDABYO",vases:"AMAVASE",
+both:"INDABYO N'AMAVASE",garden:"GUTUNGANYA UBUSITANI",
+rental:"GUKODESHA",admin:"ADMIN",contact:"TWANDIKIRE",
+title:'Indabyo <span>n\'Amavase</span>',
+subtitle:"Ubwiza muri buri kantu.",
+description:"Menya indabyo nziza n'amavase meza yo mu rugo, mu biro, impano no mu birori byihariye.",
+button:"Reba Ibicuruzwa →",
+search:"Shakisha indabyo n'amavase...",
+collection:"Indabyo n'Amavase",
+collectionDesc:"Reba indabyo zacu nziza n'amavase meza.",
+empty:"Ibicuruzwa Byacu",
+emptyDesc:"Indabyo n'amavase bizagaragara hano vuba. Ongera uze kureba.",
+delivery:"🚚 Kugeza Ibicuruzwa",
+deliveryDesc:"Dushobora kukugezaho indabyo n'amavase aho uherereye. Twandikire dutegure uko tuzabikugezaho.",
+deliveryButton:"Tumiza Ubu →",
+pickup:"🏪 Kwifatira ku Duka",
+pickupDesc:"Ushobora kuza ku iduka ryacu ukifatira ibyo watumije.",
+pickupButton:"Twandikire →",
+location:"Aho Dukorera",
+locationDesc:"Aho dukorera hazashyirwaho vuba kuri Google Maps.",
+map:"Google Maps izashyirwa hano vuba.",
+contactTitle:"Twandikire",
+contactDesc:"Twiteguye kugufasha. Twandikire uyu munsi.",
+whatsapp:"Twandikire kuri WhatsApp",call:"Duhamagare",
+footer:"Indabyo zituma ubuzima burushaho kuba bwiza. Tuzana ubwiza n'ibyishimo.",
+quick:"Imiyoboro",services:"Serivisi Zacu",
+footerHome:"Ahabanza",footerFlowers:"Indabyo",
+footerVases:"Amavase",footerBoth:"Indabyo n'Amavase",
+footerGarden:"Gutunganya Ubusitani",
+footerRental:"Gukodesha",footerContact:"Twandikire"
+},
+
+fr:{
+home:"ACCUEIL",flowers:"FLEURS",vases:"VASES",
+both:"FLEURS ET VASES",garden:"JARDINAGE",
+rental:"LOCATION",admin:"ADMIN",contact:"CONTACT",
+title:'Fleurs <span>et Vases</span>',
+subtitle:"La beauté dans chaque détail.",
+description:"Découvrez de belles fleurs et des vases élégants pour votre maison, votre bureau, vos cadeaux et vos événements.",
+button:"Découvrir →",
+search:"Rechercher des fleurs et des vases...",
+collection:"Collection Fleurs et Vases",
+collectionDesc:"Découvrez nos belles fleurs et nos vases élégants.",
+empty:"Notre Collection",
+emptyDesc:"Nos fleurs et nos vases apparaîtront bientôt ici.",
+delivery:"🚚 Service de Livraison",
+deliveryDesc:"Nous livrons des fleurs et des vases à l'adresse de votre choix.",
+deliveryButton:"Commander →",
+pickup:"🏪 Retrait en Boutique",
+pickupDesc:"Vous pouvez également venir récupérer votre commande dans notre boutique.",
+pickupButton:"Contactez-nous →",
+location:"Notre Adresse",
+locationDesc:"Notre emplacement officiel sera ajouté bientôt sur Google Maps.",
+map:"Emplacement Google Maps bientôt disponible.",
+contactTitle:"Contactez-nous",
+contactDesc:"Nous sommes heureux de vous aider. Contactez JOY FLOWERS.",
+whatsapp:"WhatsApp",call:"Appelez-nous",
+footer:"Les fleurs rendent la vie plus belle. Apportons beauté et bonheur.",
+quick:"Liens Rapides",services:"Nos Services",
+footerHome:"Accueil",footerFlowers:"Fleurs",
+footerVases:"Vases",footerBoth:"Fleurs et Vases",
+footerGarden:"Jardinage",footerRental:"Location",
+footerContact:"Contact"
+},
+
+sw:{
+home:"NYUMBANI",flowers:"MAUA",vases:"VASE",
+both:"MAUA NA VASE",garden:"UTENGENEZAJI WA BUSTANI",
+rental:"KUKODISHA",admin:"ADMIN",contact:"WASILIANA NASI",
+title:'Maua <span>na Vase</span>',
+subtitle:"Uzuri katika kila kitu.",
+description:"Gundua maua mazuri na vase za kifahari kwa nyumba, ofisi, zawadi na hafla maalum.",
+button:"Tazama Bidhaa →",
+search:"Tafuta maua na vase...",
+collection:"Mkusanyiko wa Maua na Vase",
+collectionDesc:"Gundua maua yetu mazuri na vase za kifahari.",
+empty:"Bidhaa Zetu",
+emptyDesc:"Maua na vase zitaonekana hapa hivi karibuni.",
+delivery:"🚚 Huduma ya Uwasilishaji",
+deliveryDesc:"Tunaweza kukuletea maua na vase mahali unapopendelea.",
+deliveryButton:"Agiza Sasa →",
+pickup:"🏪 Kuchukua Dukani",
+pickupDesc:"Unaweza kutembelea duka letu na kuchukua oda yako.",
+pickupButton:"Wasiliana Nasi →",
+location:"Mahali Tulipo",
+locationDesc:"Mahali petu rasmi yataongezwa kwenye Google Maps hivi karibuni.",
+map:"Ramani ya Google itaongezwa hivi karibuni.",
+contactTitle:"Wasiliana Nasi",
+contactDesc:"Tuko tayari kukusaidia. Wasiliana nasi leo.",
+whatsapp:"WhatsApp",call:"Piga Simu",
+footer:"Maua hufanya maisha kuwa mazuri zaidi.",
+quick:"Viungo",services:"Huduma Zetu",
+footerHome:"Nyumbani",footerFlowers:"Maua",
+footerVases:"Vase",footerBoth:"Maua na Vase",
+footerGarden:"Utengenezaji wa Bustani",
+footerRental:"Kukodisha",footerContact:"Wasiliana Nasi"
+},
+
+zh:{
+home:"首页",flowers:"鲜花",vases:"花瓶",
+both:"鲜花和花瓶",garden:"花园设计",
+rental:"租赁",admin:"管理",contact:"联系我们",
+title:'鲜花<span>和花瓶</span>',
+subtitle:"每个细节都充满美丽。",
+description:"为您的家、办公室、礼物和特别活动探索美丽的鲜花和优雅的花瓶。",
+button:"浏览产品 →",
+search:"搜索鲜花和花瓶...",
+collection:"鲜花和花瓶系列",
+collectionDesc:"探索我们美丽的鲜花和优雅的花瓶。",
+empty:"我们的产品",
+emptyDesc:"鲜花和花瓶即将在这里展示，敬请期待。",
+delivery:"🚚 配送服务",
+deliveryDesc:"我们可以将鲜花和花瓶送到您指定的地点。",
+deliveryButton:"立即订购 →",
+pickup:"🏪 到店自取",
+pickupDesc:"您也可以到我们的商店领取您的订单。",
+pickupButton:"联系我们 →",
+location:"我们的位置",
+locationDesc:"官方 Google 地图位置即将添加。",
+map:"Google 地图位置即将添加。",
+contactTitle:"联系我们",
+contactDesc:"我们很乐意为您提供帮助。",
+whatsapp:"WhatsApp 联系我们",call:"拨打电话",
+footer:"鲜花让生活更美好。为每一刻带来美丽与快乐。",
+quick:"快速链接",services:"我们的服务",
+footerHome:"首页",footerFlowers:"鲜花",
+footerVases:"花瓶",footerBoth:"鲜花和花瓶",
+footerGarden:"花园设计",footerRental:"租赁",
+footerContact:"联系我们"
+}
+};
+
+function applyLanguage(){
+
+const lang=localStorage.getItem("joyFlowersLanguage")||"en";
+const t=translations[lang]||translations.en;
+
+document.documentElement.lang=lang;
+
+function set(id,value){
+const el=document.getElementById(id);
+if(el)el.textContent=value;
+}
+
+set("navHome",t.home);
+set("navFlowers",t.flowers);
+set("navVases",t.vases);
+set("navBoth",t.both);
+set("navGarden",t.garden);
+set("navRental",t.rental);
+set("navAdmin",t.admin);
+set("navContact",t.contact);
+
+document.getElementById("heroTitle").innerHTML=t.title;
+
+set("heroSubtitle",t.subtitle);
+set("heroDescription",t.description);
+set("heroButton",t.button);
+
+set("collectionTitle",t.collection);
+set("collectionDescription",t.collectionDesc);
+set("emptyTitle",t.empty);
+set("emptyDescription",t.emptyDesc);
+
+set("deliveryTitle",t.delivery);
+set("deliveryDescription",t.deliveryDesc);
+set("deliveryButton",t.deliveryButton);
+
+set("pickupTitle",t.pickup);
+set("pickupDescription",t.pickupDesc);
+set("pickupButton",t.pickupButton);
+
+set("locationTitle",t.location);
+set("locationDescription",t.locationDesc);
+set("mapDescription",t.map);
+
+set("contactTitle",t.contactTitle);
+set("contactDescription",t.contactDesc);
+set("whatsappButton",t.whatsapp);
+set("callButton",t.call);
+
+set("footerDescription",t.footer);
+set("quickLinks",t.quick);
+set("servicesTitle",t.services);
+set("footerHome",t.footerHome);
+set("footerFlowers",t.footerFlowers);
+set("footerVases",t.footerVases);
+set("footerBoth",t.footerBoth);
+set("footerGarden",t.footerGarden);
+set("footerRental",t.footerRental);
+set("footerContact",t.footerContact);
+
+document.getElementById("search").placeholder=t.search;
+
+}
+
+applyLanguage();
+
+/* PRODUCT SEARCH - READY FOR ADMIN PRODUCTS */
+
+document.getElementById("search").addEventListener("input",function(){
+
+const query=this.value.toLowerCase();
+
+document.querySelectorAll(".product-card").forEach(card=>{
+const name=(card.dataset.name||"").toLowerCase();
+card.style.display=name.includes(query)?"":"none";
+});
+
+});
+
+</script>
+
+</body>
+</html>
