@@ -4,1163 +4,367 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JOY FLOWERS | Admin Dashboard</title>
-
+<title>JOY FLOWERS | Admin</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-:root{
-  --yellow:#f5c928;
-  --dark:#292929;
-  --white:#fff;
-  --gray:#777;
-  --light:#fff9e5;
-  --border:#eee;
-}
-
-body{
-  font-family:Arial,sans-serif;
-  background:#f7f7f5;
-  color:#252525;
-}
-
-.sidebar{
-  width:250px;
-  height:100vh;
-  background:#fff;
-  position:fixed;
-  top:0;
-  left:0;
-  padding:25px 18px;
-  border-right:1px solid #eee;
-  z-index:10;
-  overflow-y:auto;
-}
-
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin-bottom:40px;
-}
-
-.logo-icon{
-  background:var(--yellow);
-  padding:12px;
-  border-radius:12px;
-  font-size:22px;
-}
-
-.logo h2{font-size:18px}
-.logo small{color:var(--gray);font-size:11px}
-
-.menu-title{
-  color:#aaa;
-  font-size:11px;
-  margin:20px 10px 12px;
-  font-weight:bold;
-}
-
-.menu a{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:13px;
-  margin:5px 0;
-  text-decoration:none;
-  color:#555;
-  border-radius:9px;
-  cursor:pointer;
-  font-size:14px;
-}
-
-.menu a:hover,.menu a.active{
-  background:#fff5ce;
-  color:#9b7400;
-}
-
-.logout{
-  margin-top:35px;
-}
-
-.logout a{
-  display:block;
-  padding:12px;
-  color:#b33;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-.main{
-  margin-left:250px;
-  padding:30px;
-  min-height:100vh;
-}
-
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-  gap:15px;
-}
-
-.topbar h1{font-size:25px}
-.topbar p{color:var(--gray);margin-top:6px;font-size:13px}
-
-.admin{
-  background:white;
-  padding:12px 17px;
-  border-radius:10px;
-  font-size:13px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-  margin-bottom:28px;
-}
-
-.card{
-  background:white;
-  padding:22px;
-  border-radius:13px;
-  border:1px solid #eee;
-}
-
-.card .symbol{
-  background:#fff5ce;
-  width:42px;
-  height:42px;
-  display:grid;
-  place-items:center;
-  border-radius:10px;
-  font-size:21px;
-}
-
-.card h2{
-  margin:18px 0 5px;
-  font-size:27px;
-}
-
-.card p{color:var(--gray);font-size:13px}
-
-.content{
-  background:white;
-  padding:23px;
-  border-radius:13px;
-  border:1px solid #eee;
-  margin-bottom:22px;
-}
-
-.content h3{margin-bottom:20px;font-size:17px}
-
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.menu-card{
-  padding:20px;
-  border:1px solid #eee;
-  border-radius:12px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.menu-card:hover{
-  border-color:var(--yellow);
-  background:#fffdf4;
-}
-
-.menu-card .symbol{font-size:25px}
-.menu-card h3{font-size:15px;margin:13px 0 7px}
-.menu-card p{font-size:12px;color:var(--gray)}
-
-.products{
-  display:flex;
-  gap:15px;
-  align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid #eee;
-}
-
-.products img{
-  width:65px;
-  height:65px;
-  border-radius:9px;
-  object-fit:cover;
-  background:#f5f5f5;
-}
-
-.products p{color:var(--gray);font-size:12px;margin-top:5px}
-
-.status{
-  margin-left:auto;
-  background:#e9f8e9;
-  color:green;
-  padding:6px 10px;
-  border-radius:20px;
-  font-size:11px;
-}
-
-.section{display:none}
-.section.active{display:block}
-
-button{
-  border:none;
-  background:var(--yellow);
-  padding:11px 18px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-button:hover{filter:brightness(.96)}
-
-.secondary-btn{
-  background:#eee;
-}
-
-.danger-btn{
-  background:#ffe7e7;
-  color:#b00;
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.form-group{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.form-group.full{
-  grid-column:1/-1;
-}
-
-.form-group label{
-  font-size:13px;
-  font-weight:bold;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-  width:100%;
-  padding:11px;
-  border:1px solid #ddd;
-  border-radius:7px;
-  outline:none;
-  font:inherit;
-  font-size:13px;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-  border-color:var(--yellow);
-}
-
-.form-group textarea{
-  min-height:80px;
-  resize:vertical;
-}
-
-.form-buttons{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:17px;
-}
-
-.product-list{
-  margin-top:20px;
-}
-
-.product-row{
-  display:flex;
-  align-items:center;
-  gap:13px;
-  padding:12px 0;
-  border-bottom:1px solid #eee;
-}
-
-.product-row img{
-  width:65px;
-  height:65px;
-  object-fit:cover;
-  border-radius:8px;
-  background:#f4f4f4;
-}
-
-.product-row-info{
-  flex:1;
-  min-width:0;
-}
-
-.product-row-info b{
-  font-size:14px;
-}
-
-.product-row-info p{
-  font-size:12px;
-  color:#777;
-  margin-top:5px;
-}
-
-.row-actions{
-  display:flex;
-  gap:7px;
-  flex-wrap:wrap;
-}
-
-.row-actions button{
-  padding:8px 10px;
-  font-size:11px;
-}
-
-.order-card{
-  border:1px solid #eee;
-  border-radius:10px;
-  padding:16px;
-  margin-bottom:13px;
-}
-
-.order-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:12px;
-}
-
-.order-card p{
-  font-size:13px;
-  line-height:1.8;
-  color:#555;
-}
-
-.order-card ul{
-  margin:8px 0 8px 20px;
-  font-size:13px;
-  line-height:1.7;
-}
-
-.order-total{
-  font-weight:bold;
-  margin-top:10px;
-  color:#806000;
-}
-
-.order-status{
-  display:inline-block;
-  padding:6px 10px;
-  border-radius:20px;
-  background:#fff5ce;
-  font-size:11px;
-}
-
-.order-actions{
-  display:flex;
-  gap:8px;
-  margin-top:13px;
-  flex-wrap:wrap;
-}
-
-.order-actions button{
-  font-size:11px;
-  padding:8px 12px;
-}
-
-.empty{
-  color:#888;
-  font-size:13px;
-  padding:15px 0;
-}
-
-.table-wrap{
-  width:100%;
-  overflow-x:auto;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  min-width:500px;
-}
-
-th,td{
-  padding:12px;
-  text-align:left;
-  border-bottom:1px solid #eee;
-  font-size:13px;
-}
-
-th{
-  color:#777;
-  background:#fffaf0;
-}
-
-.notice{
-  padding:12px;
-  background:#fff9e5;
-  border-radius:8px;
-  font-size:12px;
-  color:#755900;
-  margin-bottom:15px;
-  line-height:1.6;
-}
-
-#imagePreview{
-  max-width:120px;
-  max-height:120px;
-  object-fit:cover;
-  border-radius:8px;
-  display:none;
-  margin-top:10px;
-}
-
-@media(max-width:900px){
-  .sidebar{width:210px}
-  .main{margin-left:210px;padding:20px}
-  .cards{grid-template-columns:repeat(2,1fr)}
-  .menu-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:600px){
-  .sidebar{
-    width:100%;
-    height:auto;
-    position:relative;
-    padding:15px;
-  }
-
-  .logo{margin-bottom:12px}
-  .menu-title,.logout{display:none}
-
-  .menu{
-    display:flex;
-    overflow-x:auto;
-    gap:5px;
-  }
-
-  .menu a{white-space:nowrap;padding:10px}
-
-  .main{margin:0;padding:17px}
-  .cards{gap:10px}
-  .card{padding:15px}
-  .card h2{font-size:22px}
-  .menu-grid{grid-template-columns:1fr 1fr}
-  .topbar h1{font-size:20px}
-  .form-grid{grid-template-columns:1fr}
-  .form-group.full{grid-column:auto}
-  .product-row{flex-wrap:wrap}
-  .row-actions{width:100%}
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f7f7f7;color:#222}
+header{background:#f5c400;padding:20px;text-align:center}
+header h1{font-size:25px}
+.container{max-width:1100px;margin:25px auto;padding:15px}
+.panel{background:white;padding:22px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 10px #ddd}
+h2{margin-bottom:15px}
+input,select,textarea{width:100%;padding:12px;margin:8px 0 15px;border:1px solid #ccc;border-radius:7px}
+button{background:#edbd00;color:#171717;border:0;padding:11px 17px;border-radius:7px;cursor:pointer;font-weight:bold;margin:4px}
+button:hover{background:#d9aa00}
+.danger{background:#d93636;color:white}
+.secondary{background:#333;color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.stat{background:#fff4bf;padding:18px;border-radius:10px}
+.stat strong{font-size:25px;display:block;margin-top:8px}
+.product{border:1px solid #ddd;border-radius:10px;padding:12px;margin:10px 0;display:flex;gap:15px;align-items:center;flex-wrap:wrap}
+.product img{width:90px;height:90px;object-fit:cover;border-radius:8px}
+.hidden{display:none}
+small{color:#666}
+#message{padding:10px;margin:10px 0;border-radius:6px}
 </style>
 </head>
-
 <body>
 
-<aside class="sidebar">
-  <div class="logo">
-    <div class="logo-icon">🌸</div>
-    <div>
-      <h2>JOY FLOWERS</h2>
-      <small>ADMIN PANEL</small>
-    </div>
-  </div>
+<header>
+<h1>🌸 JOY FLOWERS ADMIN</h1>
+<p>Manage your flower business</p>
+</header>
 
-  <div class="menu-title">MAIN MENU</div>
+<div class="container">
 
-  <nav class="menu">
-    <a class="active" onclick="showPage('dashboard',this)">▦ Dashboard</a>
-    <a onclick="showPage('products',this)">📦 Products</a>
-    <a onclick="showPage('orders',this)">🛍 Orders</a>
-    <a onclick="showPage('customers',this)">👥 Customers</a>
-    <a onclick="showPage('categories',this)">▤ Categories</a>
-    <a onclick="showPage('messages',this)">✉ Messages</a>
-    <a onclick="showPage('settings',this)">⚙ Settings</a>
-  </nav>
+<section id="loginPanel" class="panel">
+<h2>Admin Login</h2>
+<label>Email</label>
+<input type="email" id="email" value="geekemo226@gmail.com">
+<label>Password</label>
+<input type="password" id="password" placeholder="Enter your Supabase password">
+<button onclick="login()">Login</button>
+<div id="loginMessage"></div>
+</section>
 
-  <div class="logout">
-    <a onclick="alert('Login system will be added later')">↪ Logout</a>
-  </div>
-</aside>
+<section id="dashboard" class="hidden">
 
-<main class="main">
+<div class="panel">
+<h2>Welcome, Admin 🌸</h2>
+<button class="secondary" onclick="loadAll()">Refresh Dashboard</button>
+<button class="danger" onclick="logout()">Logout</button>
+<div id="message"></div>
+</div>
 
-  <div class="topbar">
-    <div>
-      <h1 id="pageTitle">Dashboard</h1>
-      <p>Welcome back to JOY FLOWERS Admin.</p>
-    </div>
-    <div class="admin">👤 Administrator</div>
-  </div>
+<div class="panel">
+<h2>Dashboard Overview</h2>
+<div class="grid">
+<div class="stat">Products<strong id="productCount">0</strong></div>
+<div class="stat">Orders<strong id="orderCount">0</strong></div>
+<div class="stat">Customers<strong id="customerCount">0</strong></div>
+<div class="stat">Total Views<strong id="totalViews">0</strong></div>
+<div class="stat">Today's Views<strong id="todayViews">0</strong></div>
+</div>
+</div>
 
-  <!-- DASHBOARD -->
-  <section id="dashboard" class="section active">
+<div class="panel">
+<h2 id="formTitle">Add New Product</h2>
+<form id="productForm">
+<input type="hidden" id="productId">
+<label>Product Name</label>
+<input id="name" required placeholder="Product name">
 
-    <div class="cards">
-      <div class="card">
-        <div class="symbol">📦</div>
-        <h2 id="totalProducts">0</h2>
-        <p>Total Products</p>
-      </div>
+<label>Price (RWF)</label>
+<input id="price" type="number" min="0" required>
 
-      <div class="card">
-        <div class="symbol">🛍</div>
-        <h2 id="totalOrders">0</h2>
-        <p>Total Orders</p>
-      </div>
+<label>Category</label>
+<select id="category" required>
+<option value="flowers">Flowers</option>
+<option value="vases">Vases</option>
+<option value="flower-vases">Flower Vases</option>
+<option value="garden-making">Garden Making</option>
+<option value="rental">Rental</option>
+</select>
 
-      <div class="card">
-        <div class="symbol">👥</div>
-        <h2 id="totalCustomers">0</h2>
-        <p>Customers</p>
-      </div>
+<label>Description</label>
+<textarea id="description" rows="3"></textarea>
 
-      <div class="card">
-        <div class="symbol">💰</div>
-        <h2 id="totalRevenue">0 FRW</h2>
-        <p>Order Revenue</p>
-      </div>
-    </div>
+<label>Product Photo</label>
+<input id="photo" type="file" accept="image/*">
+<small>Upload a product photo. Leave empty when editing to keep the current photo.</small>
 
-    <div class="content">
-      <h3>Management Menu</h3>
+<button type="submit">Save Product</button>
+<button type="button" class="secondary" onclick="resetForm()">Clear</button>
+</form>
+</div>
 
-      <div class="menu-grid">
-        <div class="menu-card" onclick="showPage('products')">
-          <div class="symbol">📦</div>
-          <h3>Products</h3>
-          <p>Add, edit and delete flowers, vases and other products.</p>
-        </div>
+<div class="panel">
+<h2>Products</h2>
+<div id="productsList">Loading...</div>
+</div>
 
-        <div class="menu-card" onclick="showPage('orders')">
-          <div class="symbol">🛍</div>
-          <h3>Orders</h3>
-          <p>View and manage customer orders.</p>
-        </div>
+<div class="panel">
+<h2>Customer Orders</h2>
+<div id="ordersList">Loading...</div>
+</div>
 
-        <div class="menu-card" onclick="showPage('customers')">
-          <div class="symbol">👥</div>
-          <h3>Customers</h3>
-          <p>View customers who placed orders.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('categories')">
-          <div class="symbol">▤</div>
-          <h3>Categories</h3>
-          <p>View product categories.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('messages')">
-          <div class="symbol">✉</div>
-          <h3>Messages</h3>
-          <p>Customer messages.</p>
-        </div>
-
-        <div class="menu-card" onclick="showPage('settings')">
-          <div class="symbol">⚙</div>
-          <h3>Settings</h3>
-          <p>Website settings.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="content">
-      <h3>Recent Products</h3>
-      <div id="recentProducts"></div>
-    </div>
-
-    <div class="content">
-      <h3>Recent Orders</h3>
-      <div id="recentOrders"></div>
-    </div>
-
-  </section>
-
-  <!-- PRODUCTS -->
-  <section id="products" class="section">
-    <div class="content">
-      <h3 id="productFormTitle">Add New Product</h3>
-
-      <div class="notice">
-        Products added here are stored in this browser and can be displayed on the matching website pages.
-      </div>
-
-      <form id="productForm">
-        <input type="hidden" id="editProductId">
-
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Product Name</label>
-            <input type="text" id="productName" required placeholder="Example: Red Roses">
-          </div>
-
-          <div class="form-group">
-            <label>Price (FRW)</label>
-            <input type="number" id="productPrice" min="0" required placeholder="Example: 2000">
-          </div>
-
-          <div class="form-group">
-            <label>Category</label>
-            <select id="productCategory" required>
-              <option value="flowers">Flowers</option>
-              <option value="vases">Vases</option>
-              <option value="flower-vases">Flower & Vases</option>
-              <option value="garden-making">Garden Making</option>
-              <option value="rental">Rental</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Product Image</label>
-            <input type="file" id="productImage" accept="image/*">
-            <img id="imagePreview" alt="Product preview">
-          </div>
-
-          <div class="form-group full">
-            <label>Description</label>
-            <textarea id="productDescription" placeholder="Write product description"></textarea>
-          </div>
-        </div>
-
-        <div class="form-buttons">
-          <button type="submit" id="saveProductButton">Save Product</button>
-          <button type="button" class="secondary-btn" onclick="resetProductForm()">Clear Form</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="content">
-      <h3>All Products</h3>
-      <div id="allProducts" class="product-list"></div>
-    </div>
-  </section>
-
-  <!-- ORDERS -->
-  <section id="orders" class="section">
-    <div class="content">
-      <h3>Orders Management</h3>
-      <div class="notice">
-        Orders saved in this browser will appear below. Customer orders from other devices require a shared database connection.
-      </div>
-      <div id="allOrders"></div>
-    </div>
-  </section>
-
-  <!-- CUSTOMERS -->
-  <section id="customers" class="section">
-    <div class="content">
-      <h3>Customers</h3>
-      <div id="allCustomers"></div>
-    </div>
-  </section>
-
-  <!-- CATEGORIES -->
-  <section id="categories" class="section">
-    <div class="content">
-      <h3>Product Categories</h3>
-      <div id="allCategories"></div>
-    </div>
-  </section>
-
-  <!-- MESSAGES -->
-  <section id="messages" class="section">
-    <div class="content">
-      <h3>Customer Messages</h3>
-      <p class="empty">Messages section will be connected later.</p>
-    </div>
-  </section>
-
-  <!-- SETTINGS -->
-  <section id="settings" class="section">
-    <div class="content">
-      <h3>Website Settings</h3>
-      <p class="empty">Website settings will be added later.</p>
-    </div>
-  </section>
-
-</main>
+</section>
+</div>
 
 <script>
-const PRODUCT_KEY = "joyFlowersProducts";
-const ORDER_KEY = "joyFlowersOrders";
+const SUPABASE_URL = "https://aqfmpflmkhcfrjxhbifc.supabase.co";
+const SUPABASE_KEY = "sb_publishable_n7HQ76Lw5EgFHSPebYUoFw_SGq7yRTA";
 
-let products = [];
-let orders = [];
-let selectedImageData = "";
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-/* GENERAL */
+let currentUser = null;
+let currentImageUrl = "";
 
-function readStorage(key) {
-  try {
-    const value = JSON.parse(localStorage.getItem(key) || "[]");
-    return Array.isArray(value) ? value : [];
-  } catch(error) {
-    return [];
-  }
+function message(text){
+ document.getElementById("message").textContent=text;
 }
 
-function saveStorage(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+async function login(){
+ const email=document.getElementById("email").value.trim();
+ const password=document.getElementById("password").value;
+ const box=document.getElementById("loginMessage");
+ box.textContent="Logging in...";
+
+ const {data,error}=await db.auth.signInWithPassword({email,password});
+
+ if(error){
+  box.textContent="Login failed: "+error.message;
+  return;
+ }
+
+ currentUser=data.user;
+ if((currentUser.email||"").toLowerCase()!=="geekemo226@gmail.com"){
+  await db.auth.signOut();
+  box.textContent="You are not authorized as Admin.";
+  return;
+ }
+
+ document.getElementById("loginPanel").classList.add("hidden");
+ document.getElementById("dashboard").classList.remove("hidden");
+ await loadAll();
 }
 
-function money(value) {
-  return Number(value || 0).toLocaleString("en-US") + " FRW";
+async function logout(){
+ await db.auth.signOut();
+ location.reload();
 }
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#039;"
-  })[char]);
+async function checkSession(){
+ const {data}=await db.auth.getSession();
+ const user=data.session?.user;
+ if(user && (user.email||"").toLowerCase()==="geekemo226@gmail.com"){
+  currentUser=user;
+  document.getElementById("loginPanel").classList.add("hidden");
+  document.getElementById("dashboard").classList.remove("hidden");
+  await loadAll();
+ }
 }
 
-function showPage(page, link) {
-  document.querySelectorAll(".section").forEach(section => {
-    section.classList.remove("active");
+async function loadAll(){
+ await loadProducts();
+ await loadOrders();
+ await loadViews();
+}
+
+async function loadProducts(){
+ const {data,error}=await db.from("products").select("*").order("created_at",{ascending:false});
+ if(error){message("Products error: "+error.message);return;}
+
+ document.getElementById("productCount").textContent=data.length;
+ const list=document.getElementById("productsList");
+
+ if(!data.length){list.innerHTML="<p>No products yet.</p>";return;}
+
+ list.innerHTML="";
+ data.forEach(p=>{
+  const item=document.createElement("div");
+  item.className="product";
+
+  const img=document.createElement("img");
+  img.src=p.image_url||"";
+  img.alt=p.name||"Product";
+
+  const details=document.createElement("div");
+  details.style.flex="1";
+  const title=document.createElement("strong");
+  title.textContent=p.name;
+  const price=document.createElement("p");
+  price.textContent=Number(p.price).toLocaleString()+" RWF";
+  const cat=document.createElement("small");
+  cat.textContent=p.category;
+  details.append(title,price,cat);
+
+  const edit=document.createElement("button");
+  edit.textContent="Edit";
+  edit.onclick=()=>editProduct(p.id);
+
+  const del=document.createElement("button");
+  del.textContent="Delete";
+  del.className="danger";
+  del.onclick=()=>deleteProduct(p.id);
+
+  item.append(img,details,edit,del);
+  list.appendChild(item);
+ });
+}
+
+async function saveProduct(event){
+ event.preventDefault();
+ message("Saving product...");
+
+ const id=document.getElementById("productId").value;
+ const file=document.getElementById("photo").files[0];
+ let imageUrl=currentImageUrl;
+
+ if(file){
+  const ext=(file.name.split(".").pop()||"jpg").toLowerCase();
+  const path=Date.now()+"-"+crypto.randomUUID()+"."+ext;
+
+  const {error:uploadError}=await db.storage
+   .from("joy-flowers-images")
+   .upload(path,file,{upsert:false});
+
+  if(uploadError){message("Image upload failed: "+uploadError.message);return;}
+
+  const {data:urlData}=db.storage
+   .from("joy-flowers-images")
+   .getPublicUrl(path);
+
+  imageUrl=urlData.publicUrl;
+ }
+
+ const product={
+  name:document.getElementById("name").value.trim(),
+  price:Number(document.getElementById("price").value),
+  category:document.getElementById("category").value,
+  description:document.getElementById("description").value.trim(),
+  image_url:imageUrl,
+  active:true
+ };
+
+ let result;
+ if(id){
+  result=await db.from("products").update(product).eq("id",id);
+ }else{
+  result=await db.from("products").insert(product);
+ }
+
+ if(result.error){message("Save failed: "+result.error.message);return;}
+
+ resetForm();
+ message("Product saved successfully!");
+ await loadProducts();
+}
+
+async function editProduct(id){
+ const {data,error}=await db.from("products").select("*").eq("id",id).single();
+ if(error){message(error.message);return;}
+
+ document.getElementById("productId").value=data.id;
+ document.getElementById("name").value=data.name||"";
+ document.getElementById("price").value=data.price||0;
+ document.getElementById("category").value=data.category||"flowers";
+ document.getElementById("description").value=data.description||"";
+ currentImageUrl=data.image_url||"";
+ document.getElementById("formTitle").textContent="Edit Product";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function deleteProduct(id){
+ if(!confirm("Delete this product?"))return;
+ const {error}=await db.from("products").delete().eq("id",id);
+ if(error){message("Delete failed: "+error.message);return;}
+ message("Product deleted.");
+ await loadProducts();
+}
+
+function resetForm(){
+ document.getElementById("productForm").reset();
+ document.getElementById("productId").value="";
+ currentImageUrl="";
+ document.getElementById("formTitle").textContent="Add New Product";
+}
+
+document.getElementById("productForm").addEventListener("submit",saveProduct);
+
+async function loadOrders(){
+ const {data,error}=await db.from("orders").select("*").order("created_at",{ascending:false});
+ if(error){message("Orders error: "+error.message);return;}
+
+ document.getElementById("orderCount").textContent=data.length;
+ const customers=new Set(data.map(o=>o.customer_phone).filter(Boolean));
+ document.getElementById("customerCount").textContent=customers.size;
+
+ const list=document.getElementById("ordersList");
+ if(!data.length){list.innerHTML="<p>No orders yet.</p>";return;}
+
+ list.innerHTML="";
+ data.forEach(o=>{
+  const div=document.createElement("div");
+  div.className="product";
+  const info=document.createElement("div");
+  info.style.flex="1";
+  const heading=document.createElement("strong");
+  heading.textContent="Order #"+o.id;
+  const phone=document.createElement("p");
+  phone.textContent="Phone: "+(o.customer_phone||"Not provided");
+  const location=document.createElement("p");
+  location.textContent="Location: "+(o.location||"Not provided");
+  const total=document.createElement("p");
+  total.textContent="Total: "+Number(o.total||0).toLocaleString()+" RWF";
+  const status=document.createElement("p");
+  status.textContent="Status: "+(o.status||"Pending");
+  info.append(heading,phone,location,total,status);
+
+  const select=document.createElement("select");
+  ["Pending","Confirmed","Completed","Cancelled"].forEach(s=>{
+   const option=document.createElement("option");
+   option.value=s;
+   option.textContent=s;
+   if(s===o.status)option.selected=true;
+   select.appendChild(option);
   });
+  select.onchange=()=>updateOrder(o.id,select.value);
 
-  document.getElementById(page).classList.add("active");
-
-  document.querySelectorAll(".menu a").forEach(item => {
-    item.classList.remove("active");
-  });
-
-  if(link) link.classList.add("active");
-
-  const titles = {
-    dashboard:"Dashboard",
-    products:"Products",
-    orders:"Orders",
-    customers:"Customers",
-    categories:"Categories",
-    messages:"Messages",
-    settings:"Settings"
-  };
-
-  document.getElementById("pageTitle").textContent = titles[page] || page;
-
-  refreshAll();
-  window.scrollTo(0,0);
+  div.append(info,select);
+  list.appendChild(div);
+ });
 }
 
-/* LOAD DATA */
-
-function loadData() {
-  products = readStorage(PRODUCT_KEY);
-  orders = readStorage(ORDER_KEY);
-  refreshAll();
+async function updateOrder(id,status){
+ const {error}=await db.from("orders").update({status}).eq("id",id);
+ if(error){message("Order update failed: "+error.message);return;}
+ message("Order status updated.");
+ await loadOrders();
 }
 
-function refreshAll() {
-  products = readStorage(PRODUCT_KEY);
-  orders = readStorage(ORDER_KEY);
+async function loadViews(){
+ const start=new Date();
+ start.setHours(0,0,0,0);
 
-  renderDashboard();
-  renderProducts();
-  renderOrders();
-  renderCustomers();
-  renderCategories();
+ const {count:total,error:e1}=await db
+  .from("website_views").select("*",{count:"exact",head:true});
+
+ const {count:today,error:e2}=await db
+  .from("website_views").select("*",{count:"exact",head:true})
+  .gte("viewed_at",start.toISOString());
+
+ if(e1||e2){
+  message("Views error: "+(e1?.message||e2?.message));
+  return;
+ }
+
+ document.getElementById("totalViews").textContent=total||0;
+ document.getElementById("todayViews").textContent=today||0;
 }
 
-/* DASHBOARD */
-
-function renderDashboard() {
-  const customers = getCustomers();
-
-  const revenue = orders.reduce((sum, order) => {
-    return sum + Number(order.total || 0);
-  }, 0);
-
-  document.getElementById("totalProducts").textContent = products.length;
-  document.getElementById("totalOrders").textContent = orders.length;
-  document.getElementById("totalCustomers").textContent = customers.length;
-  document.getElementById("totalRevenue").textContent = money(revenue);
-
-  const recentProducts = document.getElementById("recentProducts");
-
-  if(products.length === 0) {
-    recentProducts.innerHTML = '<p class="empty">No products added yet.</p>';
-  } else {
-    recentProducts.innerHTML = products.slice(-4).reverse().map(product => `
-      <div class="products">
-        ${product.image ? `<img src="${escapeHTML(product.image)}" alt="">` : ""}
-        <div>
-          <b>${escapeHTML(product.name)}</b>
-          <p>${escapeHTML(product.category)} · ${money(product.price)}</p>
-        </div>
-        <span class="status">Active</span>
-      </div>
-    `).join("");
-  }
-
-  const recentOrders = document.getElementById("recentOrders");
-
-  if(orders.length === 0) {
-    recentOrders.innerHTML = '<p class="empty">No orders received yet.</p>';
-  } else {
-    recentOrders.innerHTML = orders.slice(-3).reverse().map(order => `
-      <div class="products">
-        <div>
-          <b>${escapeHTML(order.id || "Order")}</b>
-          <p>${escapeHTML(order.customerPhone || "")} · ${money(order.total)}</p>
-        </div>
-        <span class="status">${escapeHTML(order.status || "Pending")}</span>
-      </div>
-    `).join("");
-  }
-}
-
-/* IMAGE UPLOAD */
-
-document.getElementById("productImage").addEventListener("change", function() {
-  const file = this.files[0];
-  if(!file) return;
-
-  if(!file.type.startsWith("image/")) {
-    alert("Please select an image file.");
-    this.value = "";
-    return;
-  }
-
-  const reader = new FileReader();
-
-  reader.onload = function(event) {
-    selectedImageData = event.target.result;
-
-    const preview = document.getElementById("imagePreview");
-    preview.src = selectedImageData;
-    preview.style.display = "block";
-  };
-
-  reader.readAsDataURL(file);
-});
-
-/* ADD AND EDIT PRODUCT */
-
-document.getElementById("productForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-
-  const editId = document.getElementById("editProductId").value;
-  const name = document.getElementById("productName").value.trim();
-  const price = Number(document.getElementById("productPrice").value);
-  const category = document.getElementById("productCategory").value;
-  const description = document.getElementById("productDescription").value.trim();
-
-  if(!name || !Number.isFinite(price) || price < 0) {
-    alert("Please enter a valid product name and price.");
-    return;
-  }
-
-  const existing = products.find(item => String(item.id) === String(editId));
-
-  const product = {
-    id: editId || ("JF-P-" + Date.now()),
-    name,
-    price,
-    category,
-    description,
-    image: selectedImageData || existing?.image || "",
-    updatedAt: new Date().toISOString()
-  };
-
-  if(editId) {
-    products = products.map(item =>
-      String(item.id) === String(editId) ? product : item
-    );
-  } else {
-    products.push(product);
-  }
-
-  try {
-    saveStorage(PRODUCT_KEY, products);
-    resetProductForm();
-    refreshAll();
-    alert(editId ? "Product updated successfully." : "Product added successfully.");
-  } catch(error) {
-    alert("Could not save the product. The image may be too large. Try a smaller image.");
-  }
-});
-
-function resetProductForm() {
-  document.getElementById("productForm").reset();
-  document.getElementById("editProductId").value = "";
-  document.getElementById("productFormTitle").textContent = "Add New Product";
-  document.getElementById("saveProductButton").textContent = "Save Product";
-  document.getElementById("imagePreview").style.display = "none";
-  selectedImageData = "";
-}
-
-function editProduct(id) {
-  const product = products.find(item => String(item.id) === String(id));
-  if(!product) return;
-
-  document.getElementById("editProductId").value = product.id;
-  document.getElementById("productName").value = product.name;
-  document.getElementById("productPrice").value = product.price;
-  document.getElementById("productCategory").value = product.category;
-  document.getElementById("productDescription").value = product.description || "";
-
-  selectedImageData = product.image || "";
-
-  const preview = document.getElementById("imagePreview");
-
-  if(selectedImageData) {
-    preview.src = selectedImageData;
-    preview.style.display = "block";
-  } else {
-    preview.style.display = "none";
-  }
-
-  document.getElementById("productFormTitle").textContent = "Edit Product";
-  document.getElementById("saveProductButton").textContent = "Update Product";
-
-  showPage("products");
-  document.getElementById("productName").focus();
-}
-
-function deleteProduct(id) {
-  if(!confirm("Are you sure you want to delete this product?")) return;
-
-  products = products.filter(item => String(item.id) !== String(id));
-  saveStorage(PRODUCT_KEY, products);
-  refreshAll();
-}
-
-/* PRODUCT LIST */
-
-function renderProducts() {
-  const container = document.getElementById("allProducts");
-
-  if(products.length === 0) {
-    container.innerHTML = '<p class="empty">No products added yet.</p>';
-    return;
-  }
-
-  container.innerHTML = products.slice().reverse().map(product => `
-    <div class="product-row">
-      ${product.image ? `<img src="${escapeHTML(product.image)}" alt="">` : ""}
-      <div class="product-row-info">
-        <b>${escapeHTML(product.name)}</b>
-        <p>${escapeHTML(product.category)} · ${money(product.price)}</p>
-      </div>
-      <div class="row-actions">
-        <button onclick="editProduct('${escapeHTML(product.id)}')">Edit</button>
-        <button class="danger-btn" onclick="deleteProduct('${escapeHTML(product.id)}')">Delete</button>
-      </div>
-    </div>
-  `).join("");
-}
-
-/* ORDERS */
-
-function renderOrders() {
-  const container = document.getElementById("allOrders");
-
-  if(orders.length === 0) {
-    container.innerHTML = '<p class="empty">No orders received yet.</p>';
-    return;
-  }
-
-  container.innerHTML = orders.slice().reverse().map(order => {
-    const items = Array.isArray(order.items) ? order.items : [];
-
-    const itemHTML = items.map(item => `
-      <li>
-        ${escapeHTML(item.name)} —
-        ${money(item.price)} × ${Number(item.quantity || 1)}
-        = ${money(item.lineTotal || Number(item.price || 0) * Number(item.quantity || 1))}
-      </li>
-    `).join("");
-
-    const date = order.createdAt
-      ? new Date(order.createdAt).toLocaleString()
-      : "Date unavailable";
-
-    return `
-      <div class="order-card">
-        <div class="order-top">
-          <b>${escapeHTML(order.id || "Customer Order")}</b>
-          <span class="order-status">${escapeHTML(order.status || "Pending")}</span>
-        </div>
-
-        <p>
-          <b>Phone:</b> ${escapeHTML(order.customerPhone || order.phone || "Not provided")}<br>
-          <b>Location:</b> ${escapeHTML(order.location || "Not provided")}<br>
-          <b>Date:</b> ${escapeHTML(date)}<br>
-          <b>Category:</b> ${escapeHTML(order.category || "Not specified")}
-        </p>
-
-        <ul>${itemHTML || "<li>No item details</li>"}</ul>
-
-        <p><b>Items:</b> ${Number(order.totalItems || 0)}</p>
-        <p><b>Subtotal:</b> ${money(order.subtotal)}</p>
-        <p><b>Discount:</b> ${money(order.discount)}</p>
-
-        <div class="order-total">Total: ${money(order.total)}</div>
-
-        <div class="order-actions">
-          <button onclick="updateOrderStatus('${escapeHTML(order.id)}','Confirmed')">
-            Confirm
-          </button>
-          <button class="secondary-btn" onclick="updateOrderStatus('${escapeHTML(order.id)}','Completed')">
-            Completed
-          </button>
-          <button class="danger-btn" onclick="deleteOrder('${escapeHTML(order.id)}')">
-            Delete
-          </button>
-        </div>
-      </div>
-    `;
-  }).join("");
-}
-
-function updateOrderStatus(id, status) {
-  orders = orders.map(order =>
-    String(order.id) === String(id)
-      ? {...order, status}
-      : order
-  );
-
-  saveStorage(ORDER_KEY, orders);
-  refreshAll();
-}
-
-function deleteOrder(id) {
-  if(!confirm("Delete this order?")) return;
-
-  orders = orders.filter(order => String(order.id) !== String(id));
-  saveStorage(ORDER_KEY, orders);
-  refreshAll();
-}
-
-/* CUSTOMERS */
-
-function getCustomers() {
-  const customerMap = new Map();
-
-  orders.forEach(order => {
-    const phone = order.customerPhone || order.phone || "Unknown";
-
-    if(!customerMap.has(phone)) {
-      customerMap.set(phone, {
-        phone,
-        location: order.location || "Not provided",
-        orders: 0,
-        total: 0
-      });
-    }
-
-    const customer = customerMap.get(phone);
-    customer.orders++;
-    customer.total += Number(order.total || 0);
-  });
-
-  return Array.from(customerMap.values());
-}
-
-function renderCustomers() {
-  const container = document.getElementById("allCustomers");
-  const customers = getCustomers();
-
-  if(customers.length === 0) {
-    container.innerHTML = '<p class="empty">No customers found yet.</p>';
-    return;
-  }
-
-  container.innerHTML = `
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Phone</th>
-            <th>Location</th>
-            <th>Orders</th>
-            <th>Total Spent</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${customers.map(customer => `
-            <tr>
-              <td>${escapeHTML(customer.phone)}</td>
-              <td>${escapeHTML(customer.location)}</td>
-              <td>${customer.orders}</td>
-              <td>${money(customer.total)}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    </div>
-  `;
-}
-
-/* CATEGORIES */
-
-function renderCategories() {
-  const container = document.getElementById("allCategories");
-
-  const categoryNames = {
-    "flowers":"Flowers",
-    "vases":"Vases",
-    "flower-vases":"Flower & Vases",
-    "garden-making":"Garden Making",
-    "rental":"Rental"
-  };
-
-  const categories = [
-    "flowers",
-    "vases",
-    "flower-vases",
-    "garden-making",
-    "rental"
-  ];
-
-  container.innerHTML = `
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Products</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${categories.map(category => `
-            <tr>
-              <td>${categoryNames[category]}</td>
-              <td>${products.filter(product => product.category === category).length}</td>
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    </div>
-  `;
-}
-
-/* KEEP ADMIN UPDATED WHEN SAME BROWSER CHANGES DATA */
-
-window.addEventListener("storage", function(event) {
-  if(event.key === PRODUCT_KEY || event.key === ORDER_KEY) {
-    loadData();
-  }
-});
-
-loadData();
+checkSession();
 </script>
-
 </body>
 </html>
